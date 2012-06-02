@@ -20,12 +20,11 @@ about("Konrad Malawski")
 Agenda
 ======
 
-* Architektura
+* From Java to Scala
 * Activity
 * Widoki
 * Zasoby
 * Intenty
-* Demo: **Twitter**
 
 ---
 
@@ -36,6 +35,9 @@ Przykład **map**:
 
     !scala
     List(1, 2, 3) map println
+    // 1
+    // 2
+    // 3
 
 ---
 
@@ -55,3 +57,5 @@ Thanks
   <br/>
   blog.project13.pl
 </div>
+
+slide

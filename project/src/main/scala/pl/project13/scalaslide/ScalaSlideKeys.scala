@@ -8,6 +8,11 @@ trait ScalaSlideKeys {
 
   val ScalaSlide = config("scalaslide")
 
+  val slidesDir = SettingKey[File](
+    "slides-directory",
+    "Root directory where slides.md should be in. Themes and other resources should also reside in there."
+  )
+
   val extractTestsTask = TaskKey[Unit](
     "extract-tests",
     "Extracts test code from the presentation files, such extracted tests may be run with test:test"

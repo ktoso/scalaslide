@@ -10,4 +10,5 @@ class SanitySpec extends FlatSpec with ShouldMatchers {
   it should "pass" in {
     true should equal (true)
   }
+
 }

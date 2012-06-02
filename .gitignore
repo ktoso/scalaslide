@@ -1,5 +1,9 @@
 target
 project/target
 
+# ignore final output
 presentation.html
 presentation.pdf
+
+# ignore generated tests
+src/test/scala/pl/project13/scalaslide/gen

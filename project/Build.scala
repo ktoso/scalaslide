@@ -5,17 +5,21 @@ import pl.project13.scalaslide.ScalaSlideTasks._
 
 object Resolvers {
   val smsserResolvers = Seq(
-    "Sonatype releases" at "http://oss.sonatype.org/content/repositories/releases/",
-    "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases"
+    "Sonatype Releases" at "http://oss.sonatype.org/content/repositories/releases",
+    "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases",
+    "EasyTesting Releases" at "http://repo1.maven.org/maven2/org/easytesting"
   )
 }
 
 object Versions {
   val knockoff = "0.8.0-16"
   val guava = "12.0"
+  val rainbow = "0.1"
 
   val mockito = "1.8.5"
   val scalatest = "1.7.RC1"
+
+  val fest = "1.4"
 }
 
 object Dependencies {
@@ -28,6 +32,11 @@ object Dependencies {
   val scalaTest               = "org.scalatest"           %% "scalatest"                 % Versions.scalatest % "test"
   val mockito                 = "org.mockito"              % "mockito-core"              % Versions.mockito   % "test"
 
+  val rainbow                 = "pl.project13.scala"      %% "rainbow"                   % Versions.rainbow
+
+  // java stuff
+  val festAssert              = "org.easytesting"          % "fest-assert"               % Versions.fest      % "test"
+
 }
 
 object BuildSettings {
@@ -37,6 +46,7 @@ object BuildSettings {
   val dependencies  = Seq(
     knockoff,
     guava,
+    rainbow,
     scalaTest,
     mockito
   )

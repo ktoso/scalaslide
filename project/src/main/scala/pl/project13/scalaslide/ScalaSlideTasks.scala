@@ -13,6 +13,8 @@ import annotation.tailrec
 object ScalaSlideTasks extends ScalaSlideKeys {
 
   val scalaslideSettings = Seq[Setting[_]](
+    slidesDir in ScalaSlide := file("src/main/slides"),
+    watchSources := Seq(file("src/main/slides")),
     extractTestsTaskDef,
     cleanTaskDef,
     genTask in ScalaSlide <<= genTaskDef
@@ -51,10 +53,11 @@ object ScalaSlideTasks extends ScalaSlideKeys {
       (args, sv, bd, pid, _, _, _) =>
 
       import Process._
-      val landslideCommand = "landslide %s %s".format(args.mkString(" "), slides_md.getAbsolutePath)
-      println("Executing: " + landslideCommand)
+      val landslideCommand = "landslide %s %s".format(args.mkString(" "), "slides.md")
+      val cdToSlides = "cd " + file("src/main/slides").getAbsolutePath + " ;"
 
-      landslideCommand.!
+      println("Executing: " + landslideCommand)
+      (cdToSlides + landslideCommand).!
 
       ()
     }
