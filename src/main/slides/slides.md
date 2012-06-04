@@ -1089,8 +1089,8 @@ A Scalable Language
 ===================
 
 DSLs!
-    
-    !scala
+
+    !java
     import com.foursquare.rogue.Rogue._
     People where (_.age gt 21) findAndModify
       (_.knowScala setTo true) and  
