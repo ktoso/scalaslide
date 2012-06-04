@@ -973,6 +973,26 @@ Implicit Conversion
     "Hello Implicit!".tell()
 
 ---
+Implicit Conversion
+===================
+
+Another example of how implicits can be very useful:
+
+    !scala
+    class WeirdList(list: List[_])
+    object WeirdList {
+      implicit def asWeird(list: List[_]) = new WeirdList(list)
+    }
+    
+    import WeirdList._
+    
+    def weirdStuff(weird: WeirdList) = ()
+    
+    weirdStuff(List[Int]()) // will get converted automatically
+
+Which proves to be very useful when creating some kind of Domain Specific Languages for example for configuration.
+
+---
 Implicit Parameters
 ===================
 
