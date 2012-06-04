@@ -1,0 +1,3197 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>A Scalable Language</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="file:///Library/Python/2.7/site-packages/landslide-1.0.1-py2.7.egg/landslide/themes/default/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="file:///Library/Python/2.7/site-packages/landslide-1.0.1-py2.7.egg/landslide/themes/light/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="file:///Library/Python/2.7/site-packages/landslide-1.0.1-py2.7.egg/landslide/themes/default/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A Scalable Language</h1></header>
+            
+            
+            <section><div style="text-align:center; padding-top: 130px">
+    <img src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/scala_logo_copy.png" alt="scala"/>
+</div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>about("Konrad Malawski")</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/about_me.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Agenda</h1></header>
+            
+            
+            <section><ul>
+<li>Who &amp; Why?</li>
+<li>From Java to Scala</li>
+<li>Implicits</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Scala - short history</h1></header>
+            
+            
+            <section><p><img src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/odersky.jpg" alt="Martin Odersky" height="200" style="float:right;"/></p>
+<ul>
+<li>Developed at École Polytechnique Fédérale de Lausanne <br/>
+  by <strong>Martin Odersky</strong><ul>
+<li>Odersky is primarily responsible for <strong>Java generics</strong> <br/>
+(and has apologized)</li>
+</ul>
+</li>
+<li>First version in 2004</li>
+<li>Because Martin has grown tired of legacy constraints and "don't break existing code" blocking serious innovation in Java</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Scala - "what?"</h1></header>
+            
+            
+            <section><p>Scala can be described as:</p>
+<ul>
+<li>The child of Java and Lisps / Erlang</li>
+<li>A Object Oriented AND Functional programming language</li>
+<li>One of the world's most sophisticated type systems put to use</li>
+<li>Inherently "ready" for parallel computation - immutable data, actors as abstraction over threads (kudos to <em>erlang</em>)</li>
+<li>Scala compiles to plain-old java bytecode, and <strong>runs on the JVM</strong>, as well as on CLR. Though the JVM version is the "primary" impl.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Trivia: The logo</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/scala_photo.jpg" /></p>
+<p><center>That's why so many books about Scala have Stairs on them ;-)</center></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>About ScalaSlide</h1></header>
+            
+            
+            <section><p><strong>ScalaSlide</strong> is a small tool based on SBT, Scala, Landslide and Markdown I've developed for this presentation.</p>
+<p>It's available here: <a href="https://github.com/ktoso/scalaslide">github.com/ktoso/scalaslide</a>, on GPLv3.</p>
+<p>ScalaSlide:</p>
+<ul>
+<li>extracts all code from slides</li>
+<li>compiles and <strong>runs tests each of the code blocks</strong></li>
+<li>if the presentation is valid, generates the landslide presentation (what you see now)</li>
+</ul>
+<div style="border-radius: 10px; background: #EEEEEE; padding: 20px; text-align: center; font-size: 1.5em">
+  <b>Each block of code in this presentation - compiles and passes tests</b>!
+</div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Hello World!</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="k">object</span> <span class="nc">Main</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="n">println</span><span class="o">(</span><span class="s">&quot;Hello World!&quot;</span><span class="o">)</span>
+<span class="lineno">3</span> <span class="o">}</span>
+</pre></div>
+
+<p>Tip: <strong>object</strong> is a built-in singleton pattern - can be used similarily to "static".</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Type inference</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Type inference</h1></header>
+            
+            
+            <section><p>The type of a variable, and method can be <strong>inferred</strong>.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">val</span> <span class="n">a</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="lineno">2</span> <span class="c1">// a = 44 // cannot re-assign to val</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="k">var</span> <span class="n">b</span> <span class="k">=</span> <span class="mi">12</span> <span class="c1">// Int</span>
+<span class="lineno">5</span> <span class="n">b</span> <span class="k">=</span> <span class="mi">41</span>
+<span class="lineno">6</span> <span class="c1">// b = &quot;&quot; // type missmatch cannot assign String to Int</span>
+</pre></div>
+
+<p>Different ways to define a method:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">def</span> <span class="n">anInt</span><span class="o">()</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">42</span> <span class="o">}</span>
+<span class="lineno">2</span> <span class="k">def</span> <span class="n">anInt2</span><span class="o">()</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="lineno">3</span> <span class="k">def</span> <span class="n">anInt3</span><span class="o">()</span> <span class="k">=</span> <span class="mi">42</span>
+<span class="lineno">4</span> <span class="k">def</span> <span class="n">anInt4</span> <span class="k">=</span> <span class="mi">42</span>
+</pre></div>
+
+<p>And yes, you can define them inline.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Type inference - by hand</h1></header>
+            
+            
+            <section><p>Let's <strong>infer</strong> the return type of this method (using Scala's <strong>local type inference</strong>).</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">class</span> <span class="nc">Animal</span>
+<span class="lineno"> 2</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span>
+<span class="lineno"> 3</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">extends</span> <span class="n">Animal</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="n">def</span> <span class="nf">test</span><span class="o">(</span><span class="nl">name:</span> <span class="n">String</span><span class="o">):</span> <span class="o">????</span> <span class="o">=</span> <span class="o">{</span>
+<span class="lineno"> 6</span>   <span class="n">val</span> <span class="nl">other:</span> <span class="o">????</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span>   <span class="o">(</span>
+<span class="lineno"> 9</span>     <span class="k">if</span><span class="o">(</span><span class="n">name</span> <span class="o">==</span> <span class="s">&quot;dog&quot;</span><span class="o">)</span> <span class="k">new</span> <span class="nl">Dog:</span> <span class="o">????</span> 
+<span class="lineno">10</span>     <span class="k">else</span> <span class="nl">other:</span> <span class="o">????</span>
+<span class="lineno">11</span>   <span class="o">):</span> <span class="o">????</span>
+<span class="lineno">12</span> <span class="o">}</span>
+</pre></div>
+
+<p>Tip: This gets more interesting when we get to <strong>traits</strong>.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Type inference - by hand #2</h1></header>
+            
+            
+            <section><p>Another sligtly more tricky example:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// exclude from scalaslide, won&#39;t compile</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="n">def</span> <span class="nf">yay</span><span class="o">(</span><span class="nl">n:</span> <span class="n">Int</span><span class="o">):</span> <span class="o">???</span> <span class="o">=</span> 
+<span class="lineno">4</span>   <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">yay</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">):</span> <span class="o">???</span>
+<span class="lineno">5</span>   <span class="k">else</span> <span class="mi">0</span><span class="o">:</span> <span class="o">????</span>
+</pre></div>
+
+<p>The Type Inferencer <em>will fail</em> trying to infer the return type of this method!
+We have to define it explicitly when dealing with recursion.</p>
+<p>There exist smarter type inference algorithms <a href="https://www.google.pl/webhp?sourceid=chrome-instant&amp;ie=UTF-8&amp;ion=1#hl=pl&amp;output=search&amp;sclient=psy-ab&amp;q=hindley%20millner&amp;oq=&amp;aq=&amp;aqi=&amp;aql=&amp;gs_l=&amp;pbx=1&amp;fp=71c1975d38af98d3&amp;ion=1&amp;bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&amp;biw=1280&amp;bih=1262">Hindley Millner</a> being a great example. (It's used by <strong>Haskell</strong>)</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Uniform Access Principle</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Uniform Access Principle</h1></header>
+            
+            
+            <section><p>Also known as: "Don't generate useless setters/getters ahead of time" ;-)</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">object</span> <span class="nc">Language</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;Scala&quot;</span>
+<span class="lineno">3</span> <span class="o">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="nc">Language</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Scala&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>You can change it into a method (in fact, it always was a method!), without breaking client code</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">object</span> <span class="nc">Language</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">def</span> <span class="n">name</span><span class="o">()</span> <span class="k">=</span> <span class="s">&quot;Scala&quot;</span>
+<span class="lineno">3</span> <span class="o">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="c1">// client code remains unchanged</span>
+<span class="lineno">6</span> <span class="nc">Language</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Scala&quot;</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Uniform Access Principle with <code>var</code></h1></header>
+            
+            
+            <section><p>The same migration can be done with <code>var</code>iables:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">It</span><span class="o">(</span><span class="k">var</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="k">val</span> <span class="n">it</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">It</span><span class="o">(</span><span class="s">&quot;rocks&quot;</span><span class="o">)</span>
+<span class="lineno">4</span> <span class="n">it</span><span class="o">.</span><span class="n">name</span> <span class="k">=</span> <span class="s">&quot;renamed&quot;</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="n">it</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;renamed&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>and the modified version:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">It</span><span class="o">(</span><span class="k">private</span> <span class="k">var</span> <span class="nc">_name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="nc">_name</span>
+<span class="lineno"> 3</span>   <span class="k">def</span> <span class="n">name_=</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span> <span class="nc">_name</span> <span class="k">=</span> <span class="n">name</span> <span class="o">}</span>
+<span class="lineno"> 4</span> <span class="o">}</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="c1">// client code remains unchanged!</span>
+<span class="lineno"> 7</span> <span class="k">val</span> <span class="n">it</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">It</span><span class="o">(</span><span class="s">&quot;rocks&quot;</span><span class="o">)</span>
+<span class="lineno"> 8</span> <span class="n">it</span><span class="o">.</span><span class="n">name</span> <span class="k">=</span> <span class="s">&quot;renamed&quot;</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="n">it</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;renamed&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>Which is why we're <em>fine</em> with <code>public val</code> fields in Scala!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Case class</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Boilerplate killer: case class</h1></header>
+            
+            
+            <section><p>A simple POJO:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+<span class="lineno"> 3</span>   <span class="kd">private</span> <span class="n">String</span> <span class="n">surname</span><span class="o">;</span>
+<span class="lineno"> 4</span>   <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span>   <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">surname</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 7</span>     <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+<span class="lineno"> 8</span>   <span class="o">}</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+<span class="lineno">11</span>   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+<span class="lineno">12</span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSurname</span><span class="o">(</span><span class="n">String</span> <span class="n">surname</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">surname</span> <span class="o">=</span> <span class="n">surname</span><span class="o">;</span> <span class="o">}</span>
+<span class="lineno">13</span>   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getSurname</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">surname</span><span class="o">;</span> <span class="o">}</span>
+<span class="lineno">14</span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="n">Integer</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span> <span class="o">}</span>
+<span class="lineno">15</span>   <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">age</span><span class="o">;</span> <span class="o">}</span>      
+<span class="lineno">16</span>   <span class="cm">/* 3 times! */</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span>   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/**/</span> <span class="o">}</span>
+<span class="lineno">19</span>   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span> <span class="cm">/**/</span> <span class="o">}</span>
+<span class="lineno">20</span> <span class="o">}</span>
+</pre></div>
+
+<p>So much code... Which you generate anyway. And now in Scala...</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Boilerplate killer: case class</h1></header>
+            
+            
+            <section><p>The same (almost) class in Scala</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Person</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">surname</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+</pre></div>
+
+<p>The compiler will generate all we need, including nice <code>toString</code>, <code>##</code>, <code>apply</code>, <code>unapply</code> methods.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">CasePerson</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">surname</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<span class="lineno">2</span> <span class="nc">CasePerson</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">,</span> <span class="s">&quot;B&quot;</span><span class="o">,</span> <span class="mi">0</span><span class="o">).</span><span class="n">toString</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;CasePerson(A,B,0)&quot;</span><span class="o">)</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="k">class</span> <span class="nc">Person</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">surname</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<span class="lineno">5</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">,</span> <span class="s">&quot;B&quot;</span><span class="o">,</span> <span class="mi">0</span><span class="o">).</span><span class="n">toString</span> <span class="o">==</span> <span class="s">&quot;Person@309f8c02&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Pattern Matching</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Case Class + Pattern Matching</h1></header>
+            
+            
+            <section><p>Let's take a look at two new features now:</p>
+<ul>
+<li><strong>default argument values</strong></li>
+<li>and <strong>pattern matching</strong></li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Capybara</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;Not Caplin&quot;</span><span class="o">)</span>
+<span class="lineno"> 2</span> <span class="k">val</span> <span class="n">any</span><span class="k">:</span> <span class="kt">Any</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Capybara</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="k">def</span> <span class="n">isCaplinCapybara</span><span class="o">(</span><span class="n">any</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span> <span class="k">=</span> <span class="n">any</span> <span class="k">match</span> <span class="o">{</span>
+<span class="lineno"> 5</span>   <span class="k">case</span> <span class="nc">Capybara</span><span class="o">(</span><span class="s">&quot;Caplin&quot;</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="kc">true</span>
+<span class="lineno"> 6</span>   <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="kc">false</span>
+<span class="lineno"> 7</span> <span class="o">}</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="n">isCaplinCapybara</span><span class="o">(</span><span class="k">new</span> <span class="nc">Capybara</span><span class="o">(</span><span class="s">&quot;Caplin&quot;</span><span class="o">))</span> <span class="n">should</span> <span class="n">be</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+<span class="lineno">10</span> <span class="n">isCaplinCapybara</span><span class="o">(</span><span class="k">new</span> <span class="nc">Capybara</span><span class="o">)</span> <span class="n">should</span> <span class="n">be</span> <span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+</pre></div>
+
+<p>The <code>_</code> case is quite simply "I don't care what".</p>
+<p>Notice that <code>match</code> returns a value! His friends <code>if</code> and <code>for</code> can return values too, by the way.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Pattern matching with if statements</h1></header>
+            
+            
+            <section><p>You can be smarter about how you match:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Human</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="lineno"> 2</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Capybara</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="k">val</span> <span class="n">capy</span><span class="k">:</span> <span class="kt">Any</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Capybara</span><span class="o">(</span><span class="s">&quot;Charlie&quot;</span><span class="o">)</span> <span class="c1">// if we don&#39;t force Any type, the </span>
+<span class="lineno"> 5</span> <span class="c1">// compiler won&#39;t allow the Human case bellow, because it&#39;s impossible to reach!</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="k">val</span> <span class="n">hello</span> <span class="k">=</span> <span class="n">capy</span> <span class="k">match</span> <span class="o">{</span>
+<span class="lineno"> 8</span>   <span class="k">case</span> <span class="nc">Human</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span> <span class="k">=&gt;</span> <span class="s">&quot;Hello human &quot;</span> <span class="o">+</span> <span class="n">name</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>   <span class="k">case</span> <span class="nc">Capybara</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="k">if</span> <span class="n">name</span> <span class="n">contains</span> <span class="s">&quot;a&quot;</span> <span class="k">=&gt;</span> <span class="s">&quot;Hello capybara with an A!&quot;</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span>   <span class="k">case</span> <span class="n">human</span> <span class="k">@</span> <span class="nc">Human</span> <span class="k">=&gt;</span> <span class="s">&quot;Hello Human without a name!&quot;</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span>   <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="s">&quot;Who are you?&quot;</span>
+<span class="lineno">15</span> <span class="o">}</span>
+<span class="lineno">16</span> 
+<span class="lineno">17</span> <span class="n">hello</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Hello capybara with an A!&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>Did you notice we don't need <code>break</code> anywhere? <code>match</code> is not <code>switch</code>!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Apply/unapply - objects as functions!</h1></header>
+            
+            
+            <section><p>Scala makes heavy use of two "magic" methods, <code>apply</code> and <code>unapply</code>.
+Thanks to them you can write code like this:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">object</span> <span class="nc">Twice</span> <span class="o">{</span>                              
+<span class="lineno"> 2</span>   <span class="k">def</span> <span class="n">apply</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="lineno"> 3</span>   <span class="k">def</span> <span class="n">unapply</span><span class="o">(</span><span class="n">z</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">z</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="nc">Some</span><span class="o">(</span><span class="n">z</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="k">else</span> <span class="nc">None</span>  
+<span class="lineno"> 4</span> <span class="o">}</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="k">val</span> <span class="n">in</span> <span class="k">=</span> <span class="mi">42</span>
+<span class="lineno"> 7</span> <span class="k">val</span> <span class="n">doubled</span> <span class="k">=</span> <span class="nc">Twice</span><span class="o">(</span><span class="mi">42</span><span class="o">)</span> <span class="c1">// same as: Twice.apply(21)</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="n">doubled</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="mi">84</span><span class="o">)</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="k">val</span> <span class="n">unapplied</span> <span class="k">=</span> <span class="n">doubled</span> <span class="k">match</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">Twice</span><span class="o">(</span><span class="n">n</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">n</span> <span class="o">}</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="n">unapplied</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="n">in</span><span class="o">)</span>
+</pre></div>
+
+<p>The object here is called a <strong>Companion Object</strong>. </p>
+<p>It has the same name as some class. This is actually exactly what a case class would generate for us automatically - and why case classes work so well with pattern matching etc!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Extractors - a shortcut</h1></header>
+            
+            
+            <section><p><code>unapply</code> can be called even more transparently:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">object</span> <span class="nc">Twice</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">def</span> <span class="n">unapply</span><span class="o">(</span><span class="n">z</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">z</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="nc">Some</span><span class="o">(</span><span class="n">z</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="k">else</span> <span class="nc">None</span>
+<span class="lineno">3</span> <span class="o">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="k">val</span> <span class="nc">Twice</span><span class="o">(</span><span class="n">half</span><span class="o">)</span> <span class="k">=</span> <span class="mi">42</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="n">half</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="mi">42</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span>
+</pre></div>
+
+<p>Which is great for deconstructing objects with many fields.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Named Parameters</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Human</span><span class="o">(</span>
+<span class="lineno"> 2</span>   <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
+<span class="lineno"> 3</span>   <span class="n">middlename</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span><span class="o">,</span>
+<span class="lineno"> 4</span>   <span class="n">lastname</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span>   <span class="k">override</span> <span class="k">val</span> <span class="n">toString</span> <span class="k">=</span> <span class="s">&quot;%s %s%s&quot;</span><span class="o">.</span><span class="n">format</span><span class="o">(</span>
+<span class="lineno"> 7</span>     <span class="n">name</span><span class="o">,</span> 
+<span class="lineno"> 8</span>     <span class="n">middlename</span><span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">),</span> 
+<span class="lineno"> 9</span>     <span class="n">lastname</span><span class="o">)</span> 
+<span class="lineno">10</span> <span class="o">}</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="k">val</span> <span class="n">me</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Human</span><span class="o">(</span><span class="n">name</span> <span class="k">=</span> <span class="s">&quot;Konrad&quot;</span><span class="o">,</span> <span class="n">lastname</span> <span class="k">=</span> <span class="s">&quot;Malawski&quot;</span><span class="o">)</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="n">me</span><span class="o">.</span><span class="n">toString</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Konrad Malawski&quot;</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Recursion</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Recursion</h1></header>
+            
+            
+            <section><p>Recursion is a big part of Scala, as with any functional language.</p>
+<p>Notice that the type inferencer won't be able to determine the Return Type of such method - it itself would fall into reccurent (infinite) calls! </p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">def</span> <span class="n">even</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Long</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">n</span> <span class="k">match</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">case</span> <span class="mi">1</span> <span class="k">=&gt;</span> <span class="kc">false</span>
+<span class="lineno">3</span>   <span class="k">case</span> <span class="mi">0</span> <span class="k">=&gt;</span> <span class="kc">true</span>
+<span class="lineno">4</span>   <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="n">even</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span>
+<span class="lineno">5</span> <span class="o">}</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="n">even</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span> <span class="n">should</span> <span class="n">be</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Infinite Reccursion</h1></header>
+            
+            
+            <section><p>Scala is able to run <strong>infinitely recursive method calls</strong>!</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// excluded from scalaslide tests</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="kn">import</span> <span class="nn">annotation.tailrec</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="nd">@tailrec</span>
+<span class="lineno">6</span> <span class="n">def</span> <span class="nf">infinite</span><span class="o">(</span><span class="nl">n:</span> <span class="n">Int</span><span class="o">):</span> <span class="n">Unit</span> <span class="o">=</span> <span class="n">infinite</span><span class="o">(</span><span class="n">n</span><span class="o">)</span>
+<span class="lineno">7</span> 
+<span class="lineno">8</span> <span class="n">infinite</span><span class="o">(</span><span class="mi">1111</span><span class="o">)</span> <span class="c1">// will never return, and will never throw stackoverflow!</span>
+</pre></div>
+
+<p>The above call will <strong>never finish</strong> and it will never throw an <strong>StackOverflowException</strong> like Java would!</p>
+<p><code>@tailrec</code> is an <strong>assertion</strong> that the compiler will be able to <strong>Tail-Call-Optimize</strong> this method. </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>How can Scala do that but JVM not!?</h1></header>
+            
+            
+            <section><p>So... Recursive calls would typically look (and die) like this:</p>
+<p><img src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/overflow.png"/></p>
+<p>But using <strong>tail-calls</strong> it looks like this:</p>
+<p><img src="img/tail.png"/></p>
+<p>In fact, the Scala compiler is able to <em>transform such recursive methods to loops</em>! </p>
+<p>Images from <a href="http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html">blog.richdougherty.com (2009)</a>.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Recursion trick #2: Trampolines</h1></header>
+            
+            
+            <section><p>Automatically translating a recursive call to a loop only works if the method calls itself, and no other functions in it's tail.</p>
+<p>If you need "real" recursion without growing the stack you'll need to use a technique called Trampolining:</p>
+<p><img alt="image" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/trampoline.png" /></p>
+<p>Trampolines have helpers implemented in: <a href="http://www.scala-lang.org/api/current/index.html#scala.util.control.TailCalls$">scala.util.control.TailCalls</a>.</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">import</span> <span class="nn">scala.util.control.TailCalls._</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="k">def</span> <span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span> <span class="c1">// define &quot;what to do next&quot;</span>
+<span class="lineno"> 4</span>   <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="k">def</span> <span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+<span class="lineno"> 7</span>   <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="k">val</span> <span class="n">seq</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">100000</span>
+<span class="lineno">10</span> <span class="n">isEven</span><span class="o">(</span><span class="n">seq</span><span class="o">.</span><span class="n">toList</span><span class="o">).</span><span class="n">result</span>
+</pre></div>
+
+<p>Why <code>toList</code>? Because <code>List</code>s have methods to cut of their <code>head</code> and <code>tail</code>, much like lisp / prolog / erlang.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Lazy evaluation explained</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Lazy evaluation</h1></header>
+            
+            
+            <section><p>Can you notice the previous slide containing lazy lazy evaluating code? </p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">import</span> <span class="nn">scala.util.control.TailCalls._</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="k">def</span> <span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+<span class="lineno">4</span>   <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="k">def</span> <span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+<span class="lineno">7</span>   <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+<span class="lineno">8</span> 
+<span class="lineno">9</span> <span class="n">isEven</span><span class="o">((</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span><span class="o">).</span><span class="n">toList</span><span class="o">).</span><span class="n">result</span>
+</pre></div>
+
+<p>Tip: it's in <code>tailcall</code>.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">def</span> <span class="n">tailcall</span><span class="o">[</span><span class="n">A</span><span class="o">](</span><span class="nl">rest:</span> <span class="o">=&gt;</span> <span class="n">TailRec</span><span class="o">[</span><span class="n">A</span><span class="o">]):</span> <span class="n">TailRec</span><span class="o">[</span><span class="n">A</span><span class="o">]</span>
+</pre></div>
+
+<p>Notice the <strong>Type</strong> of the parameter: <code>=&gt; TailRec[A]</code>, <br/>
+which can be read as <code>Unit =&gt; TailRec[A]</code> (almost).</p>
+<p>Let's learn about function literals and come back to this example.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Function literals via <code>=&gt;</code></h1></header>
+            
+            
+            <section><p>The <code>{ =&gt; }</code> syntax allows us to define functions (closures) in a very nice way:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">val</span> <span class="n">fun</span><span class="k">:</span> <span class="kt">Function1</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span> <span class="n">i</span> <span class="k">=&gt;</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">}</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="n">fun</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="mi">4</span><span class="o">)</span>
+</pre></div>
+
+<p>Notice that the type inferencer inferred <code>i</code> being an <code>Int</code> value.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Treating Methods as Functions</h1></header>
+            
+            
+            <section><p>It's interesting how you can use methods in the same manner,
+by creating a <strong>Partially Applied Function</strong> (that's what the trailing <code>_</code> does in this example):</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">object</span> <span class="nc">A</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">def</span> <span class="n">foo</span><span class="o">(</span><span class="n">i</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="lineno">3</span> <span class="o">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="c1">// create a partially applied function from the foo method</span>
+<span class="lineno">6</span> <span class="k">val</span> <span class="n">theFun</span><span class="k">:</span> <span class="kt">Function1</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">A</span><span class="o">.</span><span class="n">foo</span> <span class="k">_</span>
+</pre></div>
+
+<p>When you get such Function, you can pass it to other functions/methods, 
+it's a "first class citizen" in the language.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Functions as arguments</h1></header>
+            
+            
+            <section><p>You can pass a function to another function, like this:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">def</span> <span class="n">applyIt</span><span class="o">(</span><span class="n">function</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=&gt;</span> <span class="nc">String</span><span class="o">,</span> <span class="n">arg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span>
+<span class="lineno">2</span>   <span class="n">function</span><span class="o">(</span><span class="n">arg</span><span class="o">)</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="k">val</span> <span class="n">shout</span> <span class="k">=</span> <span class="o">{</span> <span class="n">s</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=&gt;</span> <span class="n">s</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span> <span class="o">}</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="n">applyIt</span><span class="o">(</span><span class="n">shout</span><span class="o">,</span> <span class="s">&quot;Hello&quot;</span><span class="o">)</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Hello!&quot;</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Call-By-Name == lazy argument eval</h1></header>
+            
+            
+            <section><p>By adding <code>=&gt;</code> before the expected type, we can delay or avoid execution of code.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// call-by-name doIt</span>
+<span class="lineno">2</span> <span class="k">def</span> <span class="n">byNameDoIt</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">it</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">T</span> <span class="o">,</span> <span class="n">really_?</span> <span class="k">:</span> <span class="kt">Boolean</span><span class="o">)</span> <span class="k">=</span> <span class="n">really_?</span> <span class="k">match</span> <span class="o">{</span>
+<span class="lineno">3</span>   <span class="k">case</span> <span class="kc">true</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">it</span><span class="o">)</span>
+<span class="lineno">4</span>   <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="nc">None</span>
+<span class="lineno">5</span> <span class="o">}</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="n">byNameDoIt</span><span class="o">(</span><span class="k">throw</span> <span class="k">new</span> <span class="nc">Exception</span><span class="o">(</span><span class="s">&quot;Fail!&quot;</span><span class="o">),</span> <span class="n">really_?</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span>
+<span class="lineno">8</span> <span class="c1">// and it didn&#39;t throw the exception!</span>
+</pre></div>
+
+<p>It's like in <strong>Haskell</strong>, but in Haskell <em>call-by-name</em> is the default way of handling arguments - in Scala it's optional.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Laziness in <code>tailcall</code> explained</h1></header>
+            
+            
+            <section><p>Using this knowlage we can now understand why <code>tailcall(a: RailRec[T]): Rec[T]</code> can actually work!</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">import</span> <span class="nn">scala.util.control.TailCalls._</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c1">// def tailcall[A](rest: =&gt; TailRec[A]): TailRec[A]</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="k">def</span> <span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+<span class="lineno">6</span>   <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="cm">/*lazy...*/</span> <span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+<span class="lineno">7</span> 
+<span class="lineno">8</span> <span class="k">def</span> <span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+<span class="lineno">9</span>   <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="cm">/*lazy...*/</span> <span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+</pre></div>
+
+<p>Remember the <strong>Trampoline</strong>!</p>
+<p><img alt="image" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/trampoline.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>One more <code>lazy</code> trick</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>One more <code>lazy</code> trick</h1></header>
+            
+            
+            <section><p><code>lazy val</code>ues are a nice "freebie" we get from Scala. As the name implies, they're evaluated only when they're needed, and then cached!</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">object</span> <span class="nc">Lazy</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="k">var</span> <span class="n">major</span> <span class="k">=</span> <span class="mi">1</span>
+<span class="lineno"> 3</span>   <span class="k">var</span> <span class="n">minor</span> <span class="k">=</span> <span class="mi">2</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span>   <span class="k">lazy</span> <span class="k">val</span> <span class="n">firstCalledAtVersion</span> <span class="k">=</span> <span class="s">&quot;%d.%d&quot;</span><span class="o">.</span><span class="n">format</span><span class="o">(</span><span class="n">major</span><span class="o">,</span> <span class="n">minor</span><span class="o">)</span>
+<span class="lineno"> 6</span> <span class="o">}</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="nc">Lazy</span><span class="o">.</span><span class="n">firstCalledAtVersion</span> <span class="n">should</span> <span class="n">equal</span><span class="o">(</span><span class="s">&quot;1.2&quot;</span><span class="o">)</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="nc">Lazy</span><span class="o">.</span><span class="n">major</span> <span class="k">=</span> <span class="mi">111</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="nc">Lazy</span><span class="o">.</span><span class="n">firstCalledAtVersion</span> <span class="n">should</span> <span class="n">not</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;111.2&quot;</span><span class="o">)</span>
+<span class="lineno">13</span> <span class="nc">Lazy</span><span class="o">.</span><span class="n">firstCalledAtVersion</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;1.2&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>It's a nice trick to pull heavy computation off to the point it's first needed.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Welcome to functional-land!</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Welcome to functional-land!</h1></header>
+            
+            
+            <section><p>Let's take a look of some of the many ways to play with <strong>Immutable Collections</strong> in Scala.</p>
+<p>It's important to remember that we deal with immutable data structures, so:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">val</span> <span class="n">l</span> <span class="k">=</span> <span class="nc">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]()</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="c1">// l += 3 // can&#39;t add to l!</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="k">val</span> <span class="n">ll</span> <span class="k">=</span> <span class="mi">3</span> <span class="o">::</span> <span class="n">l</span> <span class="c1">// prepends 3 to the list l</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="c1">// remember pattern matching? Works here too:</span>
+<span class="lineno"> 8</span> <span class="k">val</span> <span class="n">head</span> <span class="o">::</span> <span class="n">tail</span> <span class="k">=</span> <span class="n">ll</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="n">head</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+<span class="lineno">11</span> <span class="n">tail</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="nc">Nil</span><span class="o">)</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="c1">// there are many useful methods defined on List:</span>
+<span class="lineno">14</span> <span class="k">val</span> <span class="n">merged</span> <span class="k">=</span> <span class="n">ll</span> <span class="o">++</span> <span class="nc">List</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span>
+<span class="lineno">15</span> <span class="n">merged</span> <span class="n">should</span> <span class="n">have</span> <span class="n">size</span> <span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Operator overloading? No.</h1></header>
+            
+            
+            <section><p>These <code>::</code> and <code>++</code> seem like they've been overloaded, like in C++ or Prolog...</p>
+<p>Question: <em>Does Scala have <strong>Operator Overloading</strong>?</em><br/>
+Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="lineno">2</span> <span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="n">a</span><span class="o">.++(</span><span class="n">b</span><span class="o">)</span>
+<span class="lineno">5</span> <span class="c1">// is the same as</span>
+<span class="lineno">6</span> <span class="n">a</span> <span class="o">++</span> <span class="n">b</span>
+<span class="lineno">7</span> 
+<span class="lineno">8</span> <span class="c1">// and it&#39;s defined in List[T] as:</span>
+<span class="lineno">9</span> <span class="c1">// def ++(list: List[T]): List[T]</span>
+</pre></div>
+
+<p>We're simply using the "<em>infix call notation</em>" here. </p>
+<p>The same can be done with "normaly named methods", like all the <code>should</code> calls in the code examples!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>map</code></h1></header>
+            
+            
+            <section><p><strong>Map</strong> is a well-known functional concept of "mapping over a collection of values, with a function taking those and returning some other type".</p>
+<p>Let's try transform (<em>map</em>) a list from strings to numbers: </p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// List(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;) =&gt; List(1, 2, 3) // pseudo-code</span>
+</pre></div>
+
+<p>The type of the function will therefore be:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">type</span> <span class="n">neededFunType</span> <span class="o">=</span> <span class="n">List</span><span class="o">[</span><span class="n">String</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">List</span><span class="o">[</span><span class="n">Int</span><span class="o">]</span>
+<span class="lineno">2</span> <span class="c1">// the above is valid Scala, by the way!</span>
+</pre></div>
+
+<p>To achieve this we'll "map over the list with fun":</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">val</span> <span class="n">list</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="s">&quot;1&quot;</span><span class="o">,</span> <span class="s">&quot;2&quot;</span><span class="o">,</span> <span class="s">&quot;3&quot;</span><span class="o">)</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="k">val</span> <span class="n">ints</span> <span class="k">=</span> <span class="n">list</span> <span class="n">map</span> <span class="o">{</span> <span class="n">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">}</span>
+<span class="lineno">4</span> <span class="c1">// which is the same same as: list.map(_.toInt)</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="n">ints</span> <span class="n">should</span> <span class="n">have</span> <span class="n">length</span> <span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+<span class="lineno">7</span> <span class="n">ints</span> <span class="n">should</span> <span class="o">(</span><span class="n">contain</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="n">and</span> <span class="n">contain</span> <span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="n">and</span> <span class="n">contain</span> <span class="o">(</span><span class="mi">3</span><span class="o">))</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>forEach</code></h1></header>
+            
+            
+            <section><p><code>forEach</code> does exactly the same thing as <code>map</code>, but it returns <code>Unit</code>.</p>
+<p>Thanks to this, <strong>it's faster</strong> - as it won't build a new collection while mapping over the old one!</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">type</span> <span class="kt">forEachType</span> <span class="o">=</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="nc">Unit</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>foldLeft</code></h1></header>
+            
+            
+            <section><p>What's the average age of those people?</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">P</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c1">// another way to build a List[P]</span>
+<span class="lineno">4</span> <span class="k">val</span> <span class="n">people</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="n">P</span><span class="o">(</span><span class="s">&quot;Bob&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">),</span> <span class="n">P</span><span class="o">(</span><span class="s">&quot;Alice&quot;</span><span class="o">,</span> <span class="mi">24</span><span class="o">),</span> <span class="n">P</span><span class="o">(</span><span class="s">&quot;Kermit&quot;</span><span class="o">,</span> <span class="mi">4</span><span class="o">))</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="k">val</span> <span class="n">avgAge</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">foldLeft</span><span class="o">(</span><span class="mi">0</span><span class="o">)(</span><span class="k">_</span> <span class="o">+</span> <span class="n">_</span><span class="o">.</span><span class="n">age</span><span class="o">)</span> <span class="o">/</span> <span class="n">people</span><span class="o">.</span><span class="n">size</span>
+<span class="lineno">7</span> 
+<span class="lineno">8</span> <span class="n">avgAge</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="mi">17</span><span class="o">)</span>
+</pre></div>
+
+<p>Fold - think of it as folding a piece of paper.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>filter</code> + chanining transformations</h1></header>
+            
+            
+            <section><p>Find me all people above the age of 21.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">P</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c1">// another way to build a List[P]</span>
+<span class="lineno">4</span> <span class="k">val</span> <span class="n">people</span> <span class="k">=</span> <span class="n">P</span><span class="o">(</span><span class="s">&quot;Bob&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">)</span> <span class="o">::</span> <span class="n">P</span><span class="o">(</span><span class="s">&quot;Alice&quot;</span><span class="o">,</span> <span class="mi">24</span><span class="o">)</span> <span class="o">::</span> <span class="n">P</span><span class="o">(</span><span class="s">&quot;Kermit&quot;</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span> <span class="o">::</span> <span class="nc">Nil</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="k">val</span> <span class="n">above21</span> <span class="k">=</span> <span class="n">people</span> <span class="n">filter</span> <span class="o">{</span> <span class="n">_</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">21</span> <span class="o">}</span> <span class="n">map</span> <span class="o">{</span> <span class="n">_</span><span class="o">.</span><span class="n">name</span> <span class="o">}</span> <span class="c1">// and more...</span>
+<span class="lineno">7</span> 
+<span class="lineno">8</span> <span class="n">above21</span> <span class="n">should</span> <span class="n">have</span> <span class="n">length</span> <span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+</pre></div>
+
+<p><br/>
+Where does the <code>::</code> method come from by the way?</p>
+<p>It's defined on <code>Nil</code>, and <strong>methods starting with <code>:</code> are resolved against the RIGHT operand</strong>.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              45/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Maybe Monad AKA Option[T]</h1></header>
+            
+            
+            <section><p>Option[T] is one of the simplest <strong>Monads</strong>, it either has a value, or not.
+It implements typical functional operations such as <strong>map</strong> for example...</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">val</span> <span class="n">maybeNumber</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">12</span><span class="o">)</span>
+<span class="lineno">2</span> <span class="n">maybeNumber</span> <span class="n">map</span> <span class="o">{</span> <span class="n">it</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;The number is: &quot;</span> <span class="o">+</span> <span class="n">it</span><span class="o">)</span> <span class="o">}</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="k">val</span> <span class="n">noNumber</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span>
+<span class="lineno">5</span> <span class="c1">// won&#39;t compile without the type forced, scalac is too smart! :-)</span>
+<span class="lineno">6</span> <span class="n">noNumber</span> <span class="n">map</span> <span class="o">{</span> <span class="n">it</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;Hey, this won&#39;t execute!&quot;</span><span class="o">)</span> <span class="o">}</span>
+</pre></div>
+
+<p><code>Option</code> is the typesafe answer to null. In fact, it's somewhat like the <strong>NullObject</strong> design pattern.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              46/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Traits</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              47/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Diamonds = Multiple Inheritance Fail</h1></header>
+            
+            
+            <section><div style="center">
+<img src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/diamond.png" alt="diamond"/>
+</div>
+
+<p>The well known "which name() should I call?" problem.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              48/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits</h1></header>
+            
+            
+            <section><p>A <strong>Trait</strong> may be "mixed-into" a class.</p>
+<p>It's <em>similar</em> to multiple inheritance.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">Animal</span> <span class="o">{</span> <span class="k">val</span> <span class="n">isAnimal</span> <span class="k">=</span> <span class="kc">true</span> <span class="o">}</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">Furry</span> <span class="o">{</span> <span class="k">val</span> <span class="n">isFurry</span> <span class="k">=</span> <span class="kc">true</span> <span class="o">}</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Animal</span> <span class="k">with</span> <span class="nc">Furry</span>
+</pre></div>
+
+<p>The <code>extends</code> keyword is always "first", doesn't matter if it's a trait being extended.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">trait</span> <span class="nc">Furry</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">Happy</span>
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Capybara</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">Happy</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              49/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/cat.png" /></p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span><span class="o">;</span>              <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span><span class="o">;</span>  <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span>     
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              50/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/cat_1.png" /></p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span><span class="o">;</span>              <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span><span class="o">;</span>  <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span>     
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              51/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/cat_2.png" /></p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span><span class="o">;</span>              <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span><span class="o">;</span>  <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span>     
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              52/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/cat_3.png" /></p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span><span class="o">;</span>              <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span><span class="o">;</span>  <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span>     
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/cat_4.png" /></p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span><span class="o">;</span>              <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span><span class="o">;</span>  <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span>     
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              54/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p><img alt="" src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/cat_5.png" /></p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span><span class="o">;</span>              <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span>
+<span class="lineno">2</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span><span class="o">;</span>  <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span>     
+<span class="lineno">3</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              55/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - Type Linearization</h1></header>
+            
+            
+            <section><p>What about values and <code>overrides</code>?</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+<span class="lineno"> 2</span>  <span class="k">def</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span>
+<span class="lineno"> 3</span> <span class="o">}</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="k">trait</span> <span class="nc">HasLegs</span> <span class="k">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
+<span class="lineno"> 6</span>   <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;legs&quot;</span>
+<span class="lineno"> 7</span> <span class="o">}</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="k">trait</span> <span class="nc">FourLegged</span> <span class="k">extends</span> <span class="nc">HasLegs</span> <span class="o">{</span>
+<span class="lineno">10</span>   <span class="k">override</span> <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;four&quot;</span>
+<span class="lineno">11</span> <span class="o">}</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="k">trait</span> <span class="nc">Furry</span> <span class="k">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
+<span class="lineno">14</span>   <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;furry&quot;</span>
+<span class="lineno">15</span> <span class="o">}</span>
+<span class="lineno">16</span> 
+<span class="lineno">17</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="k">extends</span> <span class="nc">Furry</span> <span class="k">with</span> <span class="nc">FourLegged</span>
+<span class="lineno">18</span> <span class="o">(</span><span class="k">new</span> <span class="nc">Cat</span><span class="o">).</span><span class="n">name</span> <span class="c1">// four</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="c1">// class Cats extends FourLegged with Furry // won&#39;t compile</span>
+<span class="lineno">21</span> <span class="c1">// &lt;console&gt;:11: error: class Cats inherits conflicting members:</span>
+<span class="lineno">22</span> <span class="c1">// value name in trait FourLegged$class of type String  and</span>
+<span class="lineno">23</span> <span class="c1">// value name in trait Furry$class of type String</span>
+<span class="lineno">24</span> <span class="c1">// (Note: this can be resolved by declaring an override in class Cats.)</span>
+<span class="lineno">25</span> <span class="c1">//   class Cats extends FourLegged with Furry</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              56/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Traits - super call routing</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">trait</span> <span class="nc">A</span> <span class="o">{</span> <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;A&quot;</span> <span class="o">}</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="k">class</span> <span class="nc">B</span> <span class="k">extends</span> <span class="n">A</span> <span class="o">{</span> <span class="k">override</span> <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;B&quot;</span> <span class="o">}</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">C</span> <span class="k">extends</span> <span class="n">B</span> <span class="k">with</span> <span class="n">A</span> <span class="o">{</span>
+<span class="lineno"> 6</span>   <span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="n">name</span>          <span class="c1">// &quot;B&quot;</span>
+<span class="lineno"> 7</span>   <span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="k">super</span><span class="o">[</span><span class="kt">A</span><span class="o">].</span><span class="n">name</span> <span class="c1">// &quot;A&quot;</span>
+<span class="lineno"> 8</span> <span class="o">}</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="k">new</span> <span class="n">C</span>
+<span class="lineno">11</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">)</span>
+<span class="lineno">12</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              57/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Implicits</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              58/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Implicit Conversion</h1></header>
+            
+            
+            <section><p>"The <strong>Static</strong> language that feels <strong>Dynamic</strong>"</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">//...</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="n">val</span> <span class="n">object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span>
+<span class="lineno">4</span> <span class="n">val</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">object</span><span class="o">.</span><span class="na">whatsMyClass</span>
+</pre></div>
+
+<p>Will this compile?</p>
+<p>If we take <em>Implicit Conversions</em> into account... <br/>
+<strong>You can't be sure if this code compiles!</strong> (unless you know what "..." is)</p>
+<p>Implicit Conversions introduce the <strong>Open World Assumption</strong> to the reasoning about well-typedness and validness of source code! <em>It depends on the context if this will compile.</em></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              59/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Implicit Conversion</h1></header>
+            
+            
+            <section><p>"The <strong>Static</strong> language that feels <strong>Dynamic</strong>"</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">RichString</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">def</span> <span class="n">tell</span><span class="o">()</span> <span class="k">=</span> <span class="n">println</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+<span class="lineno">3</span> <span class="o">}</span>
+<span class="lineno">4</span> <span class="k">implicit</span> <span class="k">def</span> <span class="n">strin2richString</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">RichString</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RichString</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="s">&quot;Hello Implicit!&quot;</span><span class="o">.</span><span class="n">tell</span><span class="o">()</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              60/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Implicit Parameters</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              61/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Implicits in Action - Android</h1></header>
+            
+            
+            <section><p>Example Java API, to display a message (toast):</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;Hello!&quot;</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+</pre></div>
+
+<p>Let's try to remove all boilerplate using: </p>
+<ul>
+<li><strong>implicit conversions</strong> </li>
+<li>and <strong>implicit parameters</strong>!</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              62/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Implicits in Action - Android</h1></header>
+            
+            
+            <section><p>"Pimp my library" pattern for Android's Toast:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">Context</span>
+<span class="lineno"> 2</span> <span class="k">object</span> <span class="nc">Toast</span> <span class="o">{</span> 
+<span class="lineno"> 3</span>   <span class="k">def</span> <span class="n">makeText</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Context</span><span class="o">,</span> <span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">l</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> 
+<span class="lineno"> 4</span>     <span class="k">new</span> <span class="o">{</span> <span class="k">def</span> <span class="n">show</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/**/</span> <span class="o">}</span> <span class="o">}</span> <span class="c1">// a Structural Type!</span>
+<span class="lineno"> 5</span> <span class="o">}</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="k">class</span> <span class="nc">Toastable</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span> 
+<span class="lineno"> 8</span>   <span class="k">def</span> <span class="n">toast</span><span class="o">()(</span><span class="k">implicit</span> <span class="n">ctx</span><span class="k">:</span> <span class="kt">Context</span><span class="o">)</span> <span class="k">=</span>
+<span class="lineno"> 9</span>     <span class="nc">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="mi">300</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+<span class="lineno">10</span> <span class="o">}</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="k">implicit</span> <span class="k">def</span> <span class="n">str2toastable</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Toastable</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">ctx</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Context</span> <span class="c1">// different in Android</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="c1">// usage:</span>
+<span class="lineno">17</span> <span class="s">&quot;hello!&quot;</span><span class="o">.</span><span class="n">toast</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              63/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Side note: Structural Types</h1></header>
+            
+            
+            <section><p>A structural type is a type defined only by it's <strong>structure</strong> (methods).</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">val</span> <span class="n">hasNameMethod</span> <span class="k">=</span> <span class="k">new</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;Konrad&quot;</span>
+<span class="lineno">3</span> <span class="o">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="n">hasNameMethod</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Konrad&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>Works! But: <strong>Structural Types use reflection underneeth, so AVOID THEM</strong> (because that makes them <em>really slow</em>)!</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              64/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Implicit Conversion vs. other langs</h1></header>
+            
+            
+            <section><p>They are better than <strong>Ruby modules</strong>:</p>
+<ul>
+<li>You can change behaviour in a well defined scope - just where the {{implicit}} is reachable, ruby modules work globally</li>
+</ul>
+<p>They are better than C# / Java <strong>extension methods</strong> <a href="http://openjdk.java.net/jeps/126">JEP-126</a>:</p>
+<ul>
+<li>Extension methods can't make an object implement an interface, implicits can</li>
+<li>Extension methods can't add fields, implicits can</li>
+</ul>
+<p>And...</p>
+<ul>
+<li><strong>Typesafe!</strong></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              65/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>"Pimp My Library" pattern</h1></header>
+            
+            
+            <section><ul>
+<li>Use implicit conversions to add behaviour to "someone else's code"</li>
+<li>It's safe because you don't change it in other parts of the system</li>
+<li>More powerfull than "just extension methods", you can add (seemingly) fields and implement interfaces</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              66/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A Scalable Language</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              67/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A Scalable Language</h1></header>
+            
+            
+            <section><p>Scala indeed is a Scalable language...</p>
+<ul>
+<li>It provides enough language tools to implement your <strong>custom control structures</strong> - thanks to <strong>call-by-name</strong> and syntactic sugar here and there</li>
+<li>It supports the <strong>functional programming paradigm</strong>, but does not get in your way of doing things,</li>
+<li>You can easily adjust old code using <strong>implicit conversions</strong></li>
+<li>Scala has a <strong>Dynamic</strong> type! You can indeed have dynamic code in this static language, if you need it,</li>
+<li>It's <strong>Elegant</strong> and ... <em>"<strong>Simple, but Hard.</strong>"</em>,</li>
+<li>Scala has <strong>Macros</strong>! You can modify the compiler output thanks to tree transformations you implement in Scala itself,</li>
+<li>The <strong>scalac</strong> compiler has a modular structure and you can write <strong>compiler plugins</strong>.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              68/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Thanks</h1></header>
+            
+            
+            <section><div style="text-align:center; font-size: 1.5em">
+  Dziękuję za uwagę!<br/>
+  ありがとう！
+
+  <br/>
+  <br/>
+  <br/>
+  <img src="file:///Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/img/me.png">
+
+  <br/>
+  <br/>
+  <a href="http://www.blog.project13.pl">blog.project13.pl</a>
+</div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              69/69
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">A Scalable Language</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">about("Konrad Malawski")</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Agenda</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Scala - short history</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Scala - "what?"</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Trivia: The logo</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">About ScalaSlide</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Hello World!</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Type inference</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Type inference</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Type inference - by hand</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Type inference - by hand #2</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Uniform Access Principle</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Uniform Access Principle</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Uniform Access Principle with <code>var</code></a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Case class</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Boilerplate killer: case class</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Boilerplate killer: case class</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Pattern Matching</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Case Class + Pattern Matching</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Pattern matching with if statements</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Apply/unapply - objects as functions!</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Extractors - a shortcut</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">Named Parameters</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Recursion</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">Recursion</a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">Infinite Reccursion</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">How can Scala do that but JVM not!?</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">Recursion trick #2: Trampolines</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">Lazy evaluation explained</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">Lazy evaluation</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">Function literals via <code>=&gt;</code></a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">Treating Methods as Functions</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">Functions as arguments</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">Call-By-Name == lazy argument eval</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">Laziness in <code>tailcall</code> explained</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-37">
+        <th><a href="#slide37">One more <code>lazy</code> trick</a></th>
+        <td><a href="#slide37">37</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-38">
+        <th><a href="#slide38">One more <code>lazy</code> trick</a></th>
+        <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">Welcome to functional-land!</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">Welcome to functional-land!</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">Operator overloading? No.</a></th>
+        <td><a href="#slide41">41</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-42">
+        <th><a href="#slide42"><code>map</code></a></th>
+        <td><a href="#slide42">42</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-43">
+        <th><a href="#slide43"><code>forEach</code></a></th>
+        <td><a href="#slide43">43</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44"><code>foldLeft</code></a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-45">
+        <th><a href="#slide45"><code>filter</code> + chanining transformations</a></th>
+        <td><a href="#slide45">45</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-46">
+        <th><a href="#slide46">Maybe Monad AKA Option[T]</a></th>
+        <td><a href="#slide46">46</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-47">
+        <th><a href="#slide47">Traits</a></th>
+        <td><a href="#slide47">47</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-48">
+        <th><a href="#slide48">Diamonds = Multiple Inheritance Fail</a></th>
+        <td><a href="#slide48">48</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-49">
+        <th><a href="#slide49">Traits</a></th>
+        <td><a href="#slide49">49</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-50">
+        <th><a href="#slide50">Traits - Type Linearization</a></th>
+        <td><a href="#slide50">50</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-51">
+        <th><a href="#slide51">Traits - Type Linearization</a></th>
+        <td><a href="#slide51">51</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-52">
+        <th><a href="#slide52">Traits - Type Linearization</a></th>
+        <td><a href="#slide52">52</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-53">
+        <th><a href="#slide53">Traits - Type Linearization</a></th>
+        <td><a href="#slide53">53</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-54">
+        <th><a href="#slide54">Traits - Type Linearization</a></th>
+        <td><a href="#slide54">54</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-55">
+        <th><a href="#slide55">Traits - Type Linearization</a></th>
+        <td><a href="#slide55">55</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-56">
+        <th><a href="#slide56">Traits - Type Linearization</a></th>
+        <td><a href="#slide56">56</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-57">
+        <th><a href="#slide57">Traits - super call routing</a></th>
+        <td><a href="#slide57">57</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-58">
+        <th><a href="#slide58">Implicits</a></th>
+        <td><a href="#slide58">58</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-59">
+        <th><a href="#slide59">Implicit Conversion</a></th>
+        <td><a href="#slide59">59</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-60">
+        <th><a href="#slide60">Implicit Conversion</a></th>
+        <td><a href="#slide60">60</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-61">
+        <th><a href="#slide61">Implicit Parameters</a></th>
+        <td><a href="#slide61">61</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-62">
+        <th><a href="#slide62">Implicits in Action - Android</a></th>
+        <td><a href="#slide62">62</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-63">
+        <th><a href="#slide63">Implicits in Action - Android</a></th>
+        <td><a href="#slide63">63</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-64">
+        <th><a href="#slide64">Side note: Structural Types</a></th>
+        <td><a href="#slide64">64</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-65">
+        <th><a href="#slide65">Implicit Conversion vs. other langs</a></th>
+        <td><a href="#slide65">65</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-66">
+        <th><a href="#slide66">"Pimp My Library" pattern</a></th>
+        <td><a href="#slide66">66</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-67">
+        <th><a href="#slide67">A Scalable Language</a></th>
+        <td><a href="#slide67">67</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-68">
+        <th><a href="#slide68">A Scalable Language</a></th>
+        <td><a href="#slide68">68</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-69">
+        <th><a href="#slide69">Thanks</a></th>
+        <td><a href="#slide69">69</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
