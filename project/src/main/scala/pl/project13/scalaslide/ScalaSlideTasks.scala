@@ -1,3 +1,4 @@
+
 package pl.project13.scalaslide
 
 import sbt._
@@ -15,12 +16,16 @@ object ScalaSlideTasks extends ScalaSlideKeys {
   val scalaslideSettings = Seq[Setting[_]](
     slidesDir in ScalaSlide := file("src/main/slides"),
     watchSources := Seq(file("src/main/slides")),
+    landslideTheme in ScalaSlide := "light",
     extractTestsTaskDef,
     cleanTaskDef,
     genTask in ScalaSlide <<= genTaskDef
   )
 
   val slides_md = file("src/main/slides/slides.md")
+
+  val presentation_html = file("presentation.html")
+  val presentation_pdf = file("presentation.pdf")
 
   import com.tristanhunt.knockoff.DefaultDiscounter._
   import com.tristanhunt.knockoff._
@@ -49,15 +54,17 @@ object ScalaSlideTasks extends ScalaSlideKeys {
   }
 
   lazy val genTaskDef = inputTask { (argTask: TaskKey[Seq[String]]) =>
-    (argTask, scalaVersion, baseDirectory, projectID, cleanTask in ScalaSlide, extractTestsTask in ScalaSlide, test in Test) map {
-      (args, sv, bd, pid, _, _, _) =>
+    (argTask, scalaVersion, baseDirectory, projectID, landslideTheme in ScalaSlide, cleanTask in ScalaSlide, extractTestsTask in ScalaSlide, test in Test) map {
+      (args, sv, bd, pid, theme, _, _, _) =>
 
       import Process._
-      val landslideCommand = "landslide %s %s".format(args.mkString(" "), "slides.md")
-      val cdToSlides = "cd " + file("src/main/slides").getAbsolutePath + " ;"
+      val landslideCommand = "landslide %s --theme %s -d %s %s"
+        .format(args.mkString(" "), theme, presentation_html.getAbsolutePath, slides_md.getAbsolutePath)
 
-      println("Executing: " + landslideCommand)
-      (cdToSlides + landslideCommand).!
+      val fullCommand = landslideCommand
+
+      println("Executing: " + fullCommand)
+      fullCommand.!
 
       ()
     }

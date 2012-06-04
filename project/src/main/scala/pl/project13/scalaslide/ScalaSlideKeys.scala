@@ -8,6 +8,11 @@ trait ScalaSlideKeys {
 
   val ScalaSlide = config("scalaslide")
 
+  val landslideTheme = SettingKey[String](
+    "landslide-theme",
+    "Theme name to use for slides. Available: default, light, tango."
+  )
+
   val slidesDir = SettingKey[File](
     "slides-directory",
     "Root directory where slides.md should be in. Themes and other resources should also reside in there."
