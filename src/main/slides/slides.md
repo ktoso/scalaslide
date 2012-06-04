@@ -1088,6 +1088,32 @@ A Scalable Language
 A Scalable Language
 ===================
 
+DSLs!
+    
+    !scala
+    import com.foursquare.rogue.Rogue._
+    People where (_.age gt 21) findAndModify
+      (_.knowScala setTo true) and  
+      (_.knowLanguages addToSet 'Scala) updateOne()
+
+---
+A Scalable Language
+===================
+
+Parallelism!
+
+    !scala
+    List(1, 2, 3, 4).par map { _ * 2 }
+
+Actor based parallelism!
+
+    !java
+    actor ! DoThings("with Scala!") // hello erlang?
+
+---
+A Scalable Language
+===================
+
 Scala indeed is a Scalable language...
 
 * It provides enough language tools to implement your **custom control structures** - thanks to **call-by-name** and syntactic sugar here and there
