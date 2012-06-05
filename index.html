@@ -1281,7 +1281,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              1/72
+              1/82
             </aside>
           </footer>
         </div>
@@ -1311,7 +1311,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              2/72
+              2/82
             </aside>
           </footer>
         </div>
@@ -1327,8 +1327,15 @@ div.slide div.presenter_notes {
             
             <section><ul>
 <li>Who &amp; Why?</li>
-<li>From Java to Scala</li>
+<li>Hello World</li>
+<li>Boilerplate killers</li>
+<li>Pattern matching</li>
+<li>Recursion</li>
+<li>Lazy evaluation</li>
+<li>Functional concepts</li>
+<li>Traits</li>
 <li>Implicits</li>
+<li>A Scalable Language</li>
 </ul></section>
             
           </div>
@@ -1345,7 +1352,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              3/72
+              3/82
             </aside>
           </footer>
         </div>
@@ -1385,7 +1392,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              4/72
+              4/82
             </aside>
           </footer>
         </div>
@@ -1422,7 +1429,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              5/72
+              5/82
             </aside>
           </footer>
         </div>
@@ -1453,7 +1460,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              6/72
+              6/82
             </aside>
           </footer>
         </div>
@@ -1493,7 +1500,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              7/72
+              7/82
             </aside>
           </footer>
         </div>
@@ -1530,7 +1537,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              8/72
+              8/82
             </aside>
           </footer>
         </div>
@@ -1558,7 +1565,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              9/72
+              9/82
             </aside>
           </footer>
         </div>
@@ -1585,18 +1592,7 @@ div.slide div.presenter_notes {
 <span class="n">b</span> <span class="k">=</span> <span class="mi">41</span>
 <span class="c1">// b = &quot;&quot; // type missmatch cannot assign String to Int</span>
 </pre></div>
-</td></tr></table>
-<p>Different ways to define a method:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="n">anInt</span><span class="o">()</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">42</span> <span class="o">}</span>
-<span class="k">def</span> <span class="n">anInt2</span><span class="o">()</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="k">def</span> <span class="n">anInt3</span><span class="o">()</span> <span class="k">=</span> <span class="mi">42</span>
-<span class="k">def</span> <span class="n">anInt4</span> <span class="k">=</span> <span class="mi">42</span>
-</pre></div>
-</td></tr></table>
-<p>And yes, you can define them inline.</p></section>
+</td></tr></table></section>
             
           </div>
           <div class="presenter_notes">
@@ -1612,7 +1608,66 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              10/72
+              10/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Type inference</h1></header>
+            
+            
+            <section><p>Different ways to define a method:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="n">anInt</span><span class="o">()</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">42</span> <span class="o">}</span>
+<span class="k">def</span> <span class="n">anInt2</span><span class="o">()</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">def</span> <span class="n">anInt3</span><span class="o">()</span> <span class="k">=</span> <span class="mi">42</span>
+<span class="k">def</span> <span class="n">anInt4</span> <span class="k">=</span> <span class="mi">42</span>
+</pre></div>
+</td></tr></table>
+<p>And yes, you can define them inline.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="n">one</span><span class="o">()</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">two</span><span class="o">()</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="mi">2</span>
+  <span class="o">}</span>
+
+  <span class="mi">3</span> <span class="o">-</span> <span class="n">two</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">one</span><span class="o">()</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/82
             </aside>
           </footer>
         </div>
@@ -1668,7 +1723,7 @@ div.slide div.presenter_notes {
             </aside>
             
             <aside class="page_number">
-              11/72
+              12/82
             </aside>
           </footer>
         </div>
@@ -1712,7 +1767,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              12/72
+              13/82
             </aside>
           </footer>
         </div>
@@ -1740,7 +1795,48 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              13/72
+              14/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Uniform Access Principle</h1></header>
+            
+            
+            <section><p>Also known as: "Don't generate useless setters/getters ahead of time" ;-)</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">object</span> <span class="nc">Language</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;Scala&quot;</span>
+<span class="o">}</span>
+
+<span class="nc">Language</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;Scala&quot;</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/82
             </aside>
           </footer>
         </div>
@@ -1795,7 +1891,50 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              14/72
+              16/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Uniform Access Principle with <code>var</code></h1></header>
+            
+            
+            <section><p>The same migration can be done with <code>var</code>iables:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">It</span><span class="o">(</span><span class="k">var</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">it</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">It</span><span class="o">(</span><span class="s">&quot;rocks&quot;</span><span class="o">)</span>
+<span class="n">it</span><span class="o">.</span><span class="n">name</span> <span class="k">=</span> <span class="s">&quot;renamed&quot;</span>
+
+<span class="n">it</span><span class="o">.</span><span class="n">name</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="s">&quot;renamed&quot;</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/82
             </aside>
           </footer>
         </div>
@@ -1861,7 +2000,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              15/72
+              18/82
             </aside>
           </footer>
         </div>
@@ -1889,7 +2028,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              16/72
+              19/82
             </aside>
           </footer>
         </div>
@@ -1961,7 +2100,41 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              17/72
+              20/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Boilerplate killer: case class</h1></header>
+            
+            
+            <section><p>The same (almost) class in Scala</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Person</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">surname</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+</pre></div>
+</td></tr></table>
+<p>The compiler will generate all we need, including nice <code>toString</code>, <code>##</code>, <code>apply</code>, <code>unapply</code> methods.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/82
             </aside>
           </footer>
         </div>
@@ -2006,7 +2179,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              18/72
+              22/82
             </aside>
           </footer>
         </div>
@@ -2034,7 +2207,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              19/72
+              23/82
             </aside>
           </footer>
         </div>
@@ -2092,7 +2265,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              20/72
+              24/82
             </aside>
           </footer>
         </div>
@@ -2158,7 +2331,7 @@ We have to define it explicitly when dealing with recursion.</p>
             </aside>
             
             <aside class="page_number">
-              21/72
+              25/82
             </aside>
           </footer>
         </div>
@@ -2218,7 +2391,7 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              22/72
+              26/82
             </aside>
           </footer>
         </div>
@@ -2264,7 +2437,7 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              23/72
+              27/82
             </aside>
           </footer>
         </div>
@@ -2322,7 +2495,7 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              24/72
+              28/82
             </aside>
           </footer>
         </div>
@@ -2350,7 +2523,7 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              25/72
+              29/82
             </aside>
           </footer>
         </div>
@@ -2396,7 +2569,54 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              26/72
+              30/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Infinite Reccursion</h1></header>
+            
+            
+            <section><p>Scala is able to run <strong>infinitely recursive method calls</strong>!</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">// excluded from scalaslide tests</span>
+
+<span class="kn">import</span> <span class="nn">annotation.tailrec</span>
+
+<span class="nd">@tailrec</span>
+<span class="n">def</span> <span class="nf">infinite</span><span class="o">(</span><span class="nl">n:</span> <span class="n">Int</span><span class="o">):</span> <span class="n">Unit</span> <span class="o">=</span> <span class="n">infinite</span><span class="o">(</span><span class="n">n</span><span class="o">)</span>
+
+<span class="n">infinite</span><span class="o">(</span><span class="mi">1111</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/82
             </aside>
           </footer>
         </div>
@@ -2445,7 +2665,7 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              27/72
+              32/82
             </aside>
           </footer>
         </div>
@@ -2480,7 +2700,39 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              28/72
+              33/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Recursion trick #2: Trampolines</h1></header>
+            
+            
+            <section><p>Automatically translating a recursive call to a loop only works if the method calls itself, and no other functions in it's tail.</p>
+<p>If you need "real" recursion without growing the stack you'll need to use a technique called Trampolining:</p>
+<p><img alt="image" src="data:image/png;base64,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UO8tWbJEcymrxWIRAkrdr8AKwOl0Yvjw4WLp9eDBg/Hee+9h4cKFGDdunFDaH3zwgd9CADlEunr1avTq1QsGgwERERHinQoVKojcXkUJAi3hpv6W+Y7bLtNCfYdXxn3wwQe488478emnn+L9999Hz549xT4qplHPnj3FIW9AQXbi2267TTxzzz33ICkpCV988YXos9jYWBFuDhSaeeWVV0BEiIiIQJUqVVCvXj3cd999iImJEeWEhIRgwoQJYq5Jq5+BgnxkO3bswL59+7B27VqsXLkSCxcuxIQJE9CwYUO/9Cxt2rTByZMn/QwMeWzI403uS07bol7jx48Xz23cuFEYCnq9XuQEs1qtOHXqFBo3bgyz2Yx169bh9OnTfjx+55134vfff4fH48GZM2dQqVIlYTSFhYXBYDCIjajqEutbEa5pFRYP+pdfftmvE4KCgtCwYUNMnDgRe/bsEbuVmUnkzVdasVAWQPJS3fT0dMyePVtkFpUtWb4+++wzP2uGlQ9Q4DXExsbCYDCgTZs22L17N0aPHo3g4GCYzWaYTCbs2LEDgL/AUK37L7/80q9OreylLOzXrl3rJ2RlZuYdywCwbds2vxTnDRs2xO7du7F9+3YhLO+66y7s2bOnUD8wME337NmDatWqQa/X44033sCFCxdEUr+WLVtCp9PhnnvuwenTp/0UJg+4WbNmiVQdNWrUEDmhZNwqVKiAESNGiJVLaooO2VN45JFHxAB84IEHxECqWrUqvvrqK785BxknWXFwrHvlypVCeERFRaF79+6Ijo4WQrx3794AtJU288SePXswefJkJCcn+y0scLvd+O6771ChQgUYjUZ8//338Hq9sFqtAAq8lyFDhgghUalSJfzwww+C9x9//HG/ekoKKt5a9wMpHfWex+Pxmzu0Wq04fPgwvvjiC7+U6u+99x4AYNOmTSKbgtFoxDPPPINLly4BAPr06SPGGZ95o3r43Ed5eXkoX7682HS5a9cupKenIyMjAxkZGdizZ4+fYcLejKroZd7RAo/Hg8uXL+PAgQN48sknhQF39913iwzF8oqx3NxcERXgvvH5fNi/fz/i4+NhMpnQp08fLFiwAHPnzhXp9Pft2weg4KTF8uXLw2AwoFatWqK+hx56CFarVdB05MiR6N69O3Q6HWrUqAG9Xo+KFSsiMTERwNWl17JHValSJeza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" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/82
             </aside>
           </footer>
         </div>
@@ -2535,7 +2787,7 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              29/72
+              35/82
             </aside>
           </footer>
         </div>
@@ -2563,7 +2815,56 @@ Thanks to them you can write code like this:</p>
             </aside>
             
             <aside class="page_number">
-              30/72
+              36/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Lazy evaluation</h1></header>
+            
+            
+            <section><p>Can you notice the previous slide containing lazy lazy evaluating code? </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.util.control.TailCalls._</span>
+
+<span class="k">def</span> <span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+
+<span class="k">def</span> <span class="n">isOdd</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span><span class="k">:</span> <span class="kt">TailRec</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span> <span class="k">=</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">done</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="k">else</span> <span class="n">tailcall</span><span class="o">(</span><span class="n">isEven</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">))</span>
+
+<span class="n">isEven</span><span class="o">((</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span><span class="o">).</span><span class="n">toList</span><span class="o">).</span><span class="n">result</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/82
             </aside>
           </footer>
         </div>
@@ -2619,7 +2920,7 @@ which can be read as <code>Unit =&gt; TailRec[A]</code> (almost).</p>
             </aside>
             
             <aside class="page_number">
-              31/72
+              38/82
             </aside>
           </footer>
         </div>
@@ -2657,7 +2958,7 @@ which can be read as <code>Unit =&gt; TailRec[A]</code> (almost).</p>
             </aside>
             
             <aside class="page_number">
-              32/72
+              39/82
             </aside>
           </footer>
         </div>
@@ -2703,7 +3004,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              33/72
+              40/82
             </aside>
           </footer>
         </div>
@@ -2746,7 +3047,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              34/72
+              41/82
             </aside>
           </footer>
         </div>
@@ -2794,7 +3095,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              35/72
+              42/82
             </aside>
           </footer>
         </div>
@@ -2845,7 +3146,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              36/72
+              43/82
             </aside>
           </footer>
         </div>
@@ -2873,7 +3174,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              37/72
+              44/82
             </aside>
           </footer>
         </div>
@@ -2931,7 +3232,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              38/72
+              45/82
             </aside>
           </footer>
         </div>
@@ -2959,7 +3260,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              39/72
+              46/82
             </aside>
           </footer>
         </div>
@@ -3021,7 +3322,7 @@ it's a "first class citizen" in the language.</p></section>
             </aside>
             
             <aside class="page_number">
-              40/72
+              47/82
             </aside>
           </footer>
         </div>
@@ -3074,7 +3375,7 @@ Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</
             </aside>
             
             <aside class="page_number">
-              41/72
+              48/82
             </aside>
           </footer>
         </div>
@@ -3098,8 +3399,37 @@ Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</
 2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">type</span> <span class="n">neededFunType</span> <span class="o">=</span> <span class="n">List</span><span class="o">[</span><span class="n">String</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">List</span><span class="o">[</span><span class="n">Int</span><span class="o">]</span>
 <span class="c1">// the above is valid Scala, by the way!</span>
 </pre></div>
-</td></tr></table>
-<p>To achieve this we'll "map over the list with fun":</p>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              49/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>map</code></h1></header>
+            
+            
+            <section><p>So in order to map strings to numbers we'll "map over the list with fun":</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -3130,7 +3460,7 @@ Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</
             </aside>
             
             <aside class="page_number">
-              42/72
+              50/82
             </aside>
           </footer>
         </div>
@@ -3141,10 +3471,10 @@ Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h1><code>forEach</code></h1></header>
+            <header><h1><code>foreach</code></h1></header>
             
             
-            <section><p><code>forEach</code> does exactly the same thing as <code>map</code>, but it returns <code>Unit</code>.</p>
+            <section><p><code>foreach</code> does exactly the same thing as <code>map</code>, but it returns <code>Unit</code>.</p>
 <p>Thanks to this, <strong>it's faster</strong> - as it won't build a new collection while mapping over the old one!</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">type</span> <span class="kt">forEachType</span> <span class="o">=</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="nc">Unit</span>
 </pre></div>
@@ -3164,7 +3494,7 @@ Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</
             </aside>
             
             <aside class="page_number">
-              43/72
+              51/82
             </aside>
           </footer>
         </div>
@@ -3212,7 +3542,35 @@ Answer: <strong>No</strong>, it only has <strong>funny named methods</strong>.</
             </aside>
             
             <aside class="page_number">
-              44/72
+              52/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>(_ + _)</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/82
             </aside>
           </footer>
         </div>
@@ -3262,7 +3620,7 @@ Where does the <code>::</code> method come from by the way?</p>
             </aside>
             
             <aside class="page_number">
-              45/72
+              54/82
             </aside>
           </footer>
         </div>
@@ -3307,7 +3665,52 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              46/72
+              55/82
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: /Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>flatten</code></h1></header>
+            
+            
+            <section><p>Given a list of options, discard items which are <code>None</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">val</span> <span class="n">l</span> <span class="k">=</span> <span class="nc">None</span> <span class="o">::</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="o">::</span> <span class="nc">None</span> <span class="o">::</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span> <span class="o">::</span> <span class="nc">Nil</span>
+
+<span class="n">l</span><span class="o">.</span><span class="n">flatten</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">))</span>
+
+<span class="k">val</span> <span class="n">i</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="nc">List</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">)))</span>
+
+<span class="n">i</span><span class="o">.</span><span class="n">flatten</span> <span class="n">should</span> <span class="n">equal</span> <span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">)))</span>
+</pre></div>
+</td></tr></table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md">/Users/ktoso/Documents/prezentacje/2012-scala-at-agh/src/main/slides/slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              56/82
             </aside>
           </footer>
         </div>
@@ -3335,7 +3738,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              47/72
+              57/82
             </aside>
           </footer>
         </div>
@@ -3369,7 +3772,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              48/72
+              58/82
             </aside>
           </footer>
         </div>
@@ -3417,7 +3820,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              49/72
+              59/82
             </aside>
           </footer>
         </div>
@@ -3454,7 +3857,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              50/72
+              60/82
             </aside>
           </footer>
         </div>
@@ -3491,7 +3894,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              51/72
+              61/82
             </aside>
           </footer>
         </div>
@@ -3528,7 +3931,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              52/72
+              62/82
             </aside>
           </footer>
         </div>
@@ -3565,7 +3968,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              53/72
+              63/82
             </aside>
           </footer>
         </div>
@@ -3602,7 +4005,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              54/72
+              64/82
             </aside>
           </footer>
         </div>
@@ -3639,7 +4042,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              55/72
+              65/82
             </aside>
           </footer>
         </div>
@@ -3720,7 +4123,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              56/72
+              66/82
             </aside>
           </footer>
         </div>
@@ -3774,7 +4177,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              57/72
+              67/82
             </aside>
           </footer>
         </div>
@@ -3802,7 +4205,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              58/72
+              68/82
             </aside>
           </footer>
         </div>
@@ -3845,7 +4248,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              59/72
+              69/82
             </aside>
           </footer>
         </div>
@@ -3888,7 +4291,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              60/72
+              70/82
             </aside>
           </footer>
         </div>
@@ -3940,7 +4343,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              61/72
+              71/82
             </aside>
           </footer>
         </div>
@@ -3968,7 +4371,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              62/72
+              72/82
             </aside>
           </footer>
         </div>
@@ -4006,7 +4409,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              63/72
+              73/82
             </aside>
           </footer>
         </div>
@@ -4071,7 +4474,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              64/72
+              74/82
             </aside>
           </footer>
         </div>
@@ -4113,7 +4516,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              65/72
+              75/82
             </aside>
           </footer>
         </div>
@@ -4155,7 +4558,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              66/72
+              76/82
             </aside>
           </footer>
         </div>
@@ -4189,7 +4592,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              67/72
+              77/82
             </aside>
           </footer>
         </div>
@@ -4217,7 +4620,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              68/72
+              78/82
             </aside>
           </footer>
         </div>
@@ -4256,7 +4659,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              69/72
+              79/82
             </aside>
           </footer>
         </div>
@@ -4293,7 +4696,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              70/72
+              80/82
             </aside>
           </footer>
         </div>
@@ -4332,7 +4735,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              71/72
+              81/82
             </aside>
           </footer>
         </div>
@@ -4374,7 +4777,7 @@ It implements typical functional operations such as <strong>map</strong> for exa
             </aside>
             
             <aside class="page_number">
-              72/72
+              82/82
             </aside>
           </footer>
         </div>
@@ -4449,19 +4852,19 @@ It implements typical functional operations such as <strong>map</strong> for exa
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Type inference - by hand</a></th>
+        <th><a href="#slide11">Type inference</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Type inference - by hand #2</a></th>
+        <th><a href="#slide12">Type inference - by hand</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">Uniform Access Principle</a></th>
+        <th><a href="#slide13">Type inference - by hand #2</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
@@ -4473,350 +4876,410 @@ It implements typical functional operations such as <strong>map</strong> for exa
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Uniform Access Principle with <code>var</code></a></th>
+        <th><a href="#slide15">Uniform Access Principle</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">Case class</a></th>
+        <th><a href="#slide16">Uniform Access Principle</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
       
       <tr id="toc-row-17">
-        <th><a href="#slide17">Boilerplate killer: case class</a></th>
+        <th><a href="#slide17">Uniform Access Principle with <code>var</code></a></th>
         <td><a href="#slide17">17</a></td>
       </tr>
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">Boilerplate killer: case class</a></th>
+        <th><a href="#slide18">Uniform Access Principle with <code>var</code></a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19">Pattern Matching</a></th>
+        <th><a href="#slide19">Case class</a></th>
         <td><a href="#slide19">19</a></td>
       </tr>
       
       
       <tr id="toc-row-20">
-        <th><a href="#slide20">Case Class + Pattern Matching</a></th>
+        <th><a href="#slide20">Boilerplate killer: case class</a></th>
         <td><a href="#slide20">20</a></td>
       </tr>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">Pattern matching with if statements</a></th>
+        <th><a href="#slide21">Boilerplate killer: case class</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
       
       <tr id="toc-row-22">
-        <th><a href="#slide22">Apply/unapply - objects as functions!</a></th>
+        <th><a href="#slide22">Boilerplate killer: case class</a></th>
         <td><a href="#slide22">22</a></td>
       </tr>
       
       
       <tr id="toc-row-23">
-        <th><a href="#slide23">Extractors - a shortcut</a></th>
+        <th><a href="#slide23">Pattern Matching</a></th>
         <td><a href="#slide23">23</a></td>
       </tr>
       
       
       <tr id="toc-row-24">
-        <th><a href="#slide24">Named Parameters</a></th>
+        <th><a href="#slide24">Case Class + Pattern Matching</a></th>
         <td><a href="#slide24">24</a></td>
       </tr>
       
       
       <tr id="toc-row-25">
-        <th><a href="#slide25">Recursion</a></th>
+        <th><a href="#slide25">Pattern matching with if statements</a></th>
         <td><a href="#slide25">25</a></td>
       </tr>
       
       
       <tr id="toc-row-26">
-        <th><a href="#slide26">Recursion</a></th>
+        <th><a href="#slide26">Apply/unapply - objects as functions!</a></th>
         <td><a href="#slide26">26</a></td>
       </tr>
       
       
       <tr id="toc-row-27">
-        <th><a href="#slide27">Infinite Reccursion</a></th>
+        <th><a href="#slide27">Extractors - a shortcut</a></th>
         <td><a href="#slide27">27</a></td>
       </tr>
       
       
       <tr id="toc-row-28">
-        <th><a href="#slide28">How can Scala do that but JVM not!?</a></th>
+        <th><a href="#slide28">Named Parameters</a></th>
         <td><a href="#slide28">28</a></td>
       </tr>
       
       
       <tr id="toc-row-29">
-        <th><a href="#slide29">Recursion trick #2: Trampolines</a></th>
+        <th><a href="#slide29">Recursion</a></th>
         <td><a href="#slide29">29</a></td>
       </tr>
       
       
       <tr id="toc-row-30">
-        <th><a href="#slide30">Lazy evaluation explained</a></th>
+        <th><a href="#slide30">Recursion</a></th>
         <td><a href="#slide30">30</a></td>
       </tr>
       
       
       <tr id="toc-row-31">
-        <th><a href="#slide31">Lazy evaluation</a></th>
+        <th><a href="#slide31">Infinite Reccursion</a></th>
         <td><a href="#slide31">31</a></td>
       </tr>
       
       
       <tr id="toc-row-32">
-        <th><a href="#slide32">Function literals via <code>=&gt;</code></a></th>
+        <th><a href="#slide32">Infinite Reccursion</a></th>
         <td><a href="#slide32">32</a></td>
       </tr>
       
       
       <tr id="toc-row-33">
-        <th><a href="#slide33">Treating Methods as Functions</a></th>
+        <th><a href="#slide33">How can Scala do that but JVM not!?</a></th>
         <td><a href="#slide33">33</a></td>
       </tr>
       
       
       <tr id="toc-row-34">
-        <th><a href="#slide34">Functions as arguments</a></th>
+        <th><a href="#slide34">Recursion trick #2: Trampolines</a></th>
         <td><a href="#slide34">34</a></td>
       </tr>
       
       
       <tr id="toc-row-35">
-        <th><a href="#slide35">Call-By-Name == lazy argument eval</a></th>
+        <th><a href="#slide35">Recursion trick #2: Trampolines</a></th>
         <td><a href="#slide35">35</a></td>
       </tr>
       
       
       <tr id="toc-row-36">
-        <th><a href="#slide36">Laziness in <code>tailcall</code> explained</a></th>
+        <th><a href="#slide36">Lazy evaluation explained</a></th>
         <td><a href="#slide36">36</a></td>
       </tr>
       
       
       <tr id="toc-row-37">
-        <th><a href="#slide37">One more <code>lazy</code> trick</a></th>
+        <th><a href="#slide37">Lazy evaluation</a></th>
         <td><a href="#slide37">37</a></td>
       </tr>
       
       
       <tr id="toc-row-38">
-        <th><a href="#slide38">One more <code>lazy</code> trick</a></th>
+        <th><a href="#slide38">Lazy evaluation</a></th>
         <td><a href="#slide38">38</a></td>
       </tr>
       
       
       <tr id="toc-row-39">
-        <th><a href="#slide39">Welcome to functional-land!</a></th>
+        <th><a href="#slide39">Function literals via <code>=&gt;</code></a></th>
         <td><a href="#slide39">39</a></td>
       </tr>
       
       
       <tr id="toc-row-40">
-        <th><a href="#slide40">Welcome to functional-land!</a></th>
+        <th><a href="#slide40">Treating Methods as Functions</a></th>
         <td><a href="#slide40">40</a></td>
       </tr>
       
       
       <tr id="toc-row-41">
-        <th><a href="#slide41">Operator overloading? No.</a></th>
+        <th><a href="#slide41">Functions as arguments</a></th>
         <td><a href="#slide41">41</a></td>
       </tr>
       
       
       <tr id="toc-row-42">
-        <th><a href="#slide42"><code>map</code></a></th>
+        <th><a href="#slide42">Call-By-Name == lazy argument eval</a></th>
         <td><a href="#slide42">42</a></td>
       </tr>
       
       
       <tr id="toc-row-43">
-        <th><a href="#slide43"><code>forEach</code></a></th>
+        <th><a href="#slide43">Laziness in <code>tailcall</code> explained</a></th>
         <td><a href="#slide43">43</a></td>
       </tr>
       
       
       <tr id="toc-row-44">
-        <th><a href="#slide44"><code>foldLeft</code></a></th>
+        <th><a href="#slide44">One more <code>lazy</code> trick</a></th>
         <td><a href="#slide44">44</a></td>
       </tr>
       
       
       <tr id="toc-row-45">
-        <th><a href="#slide45"><code>filter</code> + chanining transformations</a></th>
+        <th><a href="#slide45">One more <code>lazy</code> trick</a></th>
         <td><a href="#slide45">45</a></td>
       </tr>
       
       
       <tr id="toc-row-46">
-        <th><a href="#slide46">Maybe Monad AKA Option[T]</a></th>
+        <th><a href="#slide46">Welcome to functional-land!</a></th>
         <td><a href="#slide46">46</a></td>
       </tr>
       
       
       <tr id="toc-row-47">
-        <th><a href="#slide47">Traits</a></th>
+        <th><a href="#slide47">Welcome to functional-land!</a></th>
         <td><a href="#slide47">47</a></td>
       </tr>
       
       
       <tr id="toc-row-48">
-        <th><a href="#slide48">Diamonds = Multiple Inheritance Fail</a></th>
+        <th><a href="#slide48">Operator overloading? No.</a></th>
         <td><a href="#slide48">48</a></td>
       </tr>
       
       
       <tr id="toc-row-49">
-        <th><a href="#slide49">Traits</a></th>
+        <th><a href="#slide49"><code>map</code></a></th>
         <td><a href="#slide49">49</a></td>
       </tr>
       
       
       <tr id="toc-row-50">
-        <th><a href="#slide50">Traits - Type Linearization</a></th>
+        <th><a href="#slide50"><code>map</code></a></th>
         <td><a href="#slide50">50</a></td>
       </tr>
       
       
       <tr id="toc-row-51">
-        <th><a href="#slide51">Traits - Type Linearization</a></th>
+        <th><a href="#slide51"><code>foreach</code></a></th>
         <td><a href="#slide51">51</a></td>
       </tr>
       
       
       <tr id="toc-row-52">
-        <th><a href="#slide52">Traits - Type Linearization</a></th>
+        <th><a href="#slide52"><code>foldLeft</code></a></th>
         <td><a href="#slide52">52</a></td>
       </tr>
       
       
       <tr id="toc-row-53">
-        <th><a href="#slide53">Traits - Type Linearization</a></th>
+        <th><a href="#slide53">(_ + _)</a></th>
         <td><a href="#slide53">53</a></td>
       </tr>
       
       
       <tr id="toc-row-54">
-        <th><a href="#slide54">Traits - Type Linearization</a></th>
+        <th><a href="#slide54"><code>filter</code> + chanining transformations</a></th>
         <td><a href="#slide54">54</a></td>
       </tr>
       
       
       <tr id="toc-row-55">
-        <th><a href="#slide55">Traits - Type Linearization</a></th>
+        <th><a href="#slide55">Maybe Monad AKA Option[T]</a></th>
         <td><a href="#slide55">55</a></td>
       </tr>
       
       
       <tr id="toc-row-56">
-        <th><a href="#slide56">Traits - Type Linearization</a></th>
+        <th><a href="#slide56"><code>flatten</code></a></th>
         <td><a href="#slide56">56</a></td>
       </tr>
       
       
       <tr id="toc-row-57">
-        <th><a href="#slide57">Traits - super call routing</a></th>
+        <th><a href="#slide57">Traits</a></th>
         <td><a href="#slide57">57</a></td>
       </tr>
       
       
       <tr id="toc-row-58">
-        <th><a href="#slide58">Implicits</a></th>
+        <th><a href="#slide58">Diamonds = Multiple Inheritance Fail</a></th>
         <td><a href="#slide58">58</a></td>
       </tr>
       
       
       <tr id="toc-row-59">
-        <th><a href="#slide59">Implicit Conversion</a></th>
+        <th><a href="#slide59">Traits</a></th>
         <td><a href="#slide59">59</a></td>
       </tr>
       
       
       <tr id="toc-row-60">
-        <th><a href="#slide60">Implicit Conversion</a></th>
+        <th><a href="#slide60">Traits - Type Linearization</a></th>
         <td><a href="#slide60">60</a></td>
       </tr>
       
       
       <tr id="toc-row-61">
-        <th><a href="#slide61">Implicit Conversion</a></th>
+        <th><a href="#slide61">Traits - Type Linearization</a></th>
         <td><a href="#slide61">61</a></td>
       </tr>
       
       
       <tr id="toc-row-62">
-        <th><a href="#slide62">Implicit Parameters</a></th>
+        <th><a href="#slide62">Traits - Type Linearization</a></th>
         <td><a href="#slide62">62</a></td>
       </tr>
       
       
       <tr id="toc-row-63">
-        <th><a href="#slide63">Implicits in Action - Android</a></th>
+        <th><a href="#slide63">Traits - Type Linearization</a></th>
         <td><a href="#slide63">63</a></td>
       </tr>
       
       
       <tr id="toc-row-64">
-        <th><a href="#slide64">Implicits in Action - Android</a></th>
+        <th><a href="#slide64">Traits - Type Linearization</a></th>
         <td><a href="#slide64">64</a></td>
       </tr>
       
       
       <tr id="toc-row-65">
-        <th><a href="#slide65">Side note: Structural Types</a></th>
+        <th><a href="#slide65">Traits - Type Linearization</a></th>
         <td><a href="#slide65">65</a></td>
       </tr>
       
       
       <tr id="toc-row-66">
-        <th><a href="#slide66">Implicit Conversion vs. other langs</a></th>
+        <th><a href="#slide66">Traits - Type Linearization</a></th>
         <td><a href="#slide66">66</a></td>
       </tr>
       
       
       <tr id="toc-row-67">
-        <th><a href="#slide67">"Pimp My Library" pattern</a></th>
+        <th><a href="#slide67">Traits - super call routing</a></th>
         <td><a href="#slide67">67</a></td>
       </tr>
       
       
       <tr id="toc-row-68">
-        <th><a href="#slide68">A Scalable Language</a></th>
+        <th><a href="#slide68">Implicits</a></th>
         <td><a href="#slide68">68</a></td>
       </tr>
       
       
       <tr id="toc-row-69">
-        <th><a href="#slide69">A Scalable Language</a></th>
+        <th><a href="#slide69">Implicit Conversion</a></th>
         <td><a href="#slide69">69</a></td>
       </tr>
       
       
       <tr id="toc-row-70">
-        <th><a href="#slide70">A Scalable Language</a></th>
+        <th><a href="#slide70">Implicit Conversion</a></th>
         <td><a href="#slide70">70</a></td>
       </tr>
       
       
       <tr id="toc-row-71">
-        <th><a href="#slide71">A Scalable Language</a></th>
+        <th><a href="#slide71">Implicit Conversion</a></th>
         <td><a href="#slide71">71</a></td>
       </tr>
       
       
       <tr id="toc-row-72">
-        <th><a href="#slide72">Thanks</a></th>
+        <th><a href="#slide72">Implicit Parameters</a></th>
         <td><a href="#slide72">72</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-73">
+        <th><a href="#slide73">Implicits in Action - Android</a></th>
+        <td><a href="#slide73">73</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-74">
+        <th><a href="#slide74">Implicits in Action - Android</a></th>
+        <td><a href="#slide74">74</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-75">
+        <th><a href="#slide75">Side note: Structural Types</a></th>
+        <td><a href="#slide75">75</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-76">
+        <th><a href="#slide76">Implicit Conversion vs. other langs</a></th>
+        <td><a href="#slide76">76</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-77">
+        <th><a href="#slide77">"Pimp My Library" pattern</a></th>
+        <td><a href="#slide77">77</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-78">
+        <th><a href="#slide78">A Scalable Language</a></th>
+        <td><a href="#slide78">78</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-79">
+        <th><a href="#slide79">A Scalable Language</a></th>
+        <td><a href="#slide79">79</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-80">
+        <th><a href="#slide80">A Scalable Language</a></th>
+        <td><a href="#slide80">80</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-81">
+        <th><a href="#slide81">A Scalable Language</a></th>
+        <td><a href="#slide81">81</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-82">
+        <th><a href="#slide82">Thanks</a></th>
+        <td><a href="#slide82">82</a></td>
       </tr>
       
       

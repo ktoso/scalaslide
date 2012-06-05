@@ -18,8 +18,15 @@ Agenda
 ======
 
 * Who & Why?
-* From Java to Scala
+* Hello World
+* Boilerplate killers
+* Pattern matching
+* Recursion
+* Lazy evaluation
+* Functional concepts
+* Traits
 * Implicits
+* A Scalable Language
 
 ---
 
@@ -108,6 +115,10 @@ The type of a variable, and method can be **inferred**.
     b = 41
     // b = "" // type missmatch cannot assign String to Int
 
+---
+Type inference
+==============
+
 Different ways to define a method:
 
     !scala
@@ -117,6 +128,17 @@ Different ways to define a method:
     def anInt4 = 42
     
 And yes, you can define them inline.
+
+    !scala
+    def one() = {
+      def two() = {
+        2
+      }
+      
+      3 - two()
+    }
+    
+    one() should equal (1)
 
 ---
 Type inference - by hand
@@ -178,6 +200,20 @@ Also known as: "Don't generate useless setters/getters ahead of time" ;-)
     
     Language.name should equal ("Scala")
 
+---
+
+Uniform Access Principle
+========================
+
+Also known as: "Don't generate useless setters/getters ahead of time" ;-)
+
+    !scala
+    object Language {
+      val name = "Scala"
+    }
+    
+    Language.name should equal ("Scala")
+
 You can change it into a method (in fact, it always was a method!), without breaking client code
 
     !scala
@@ -187,6 +223,24 @@ You can change it into a method (in fact, it always was a method!), without brea
     
     // client code remains unchanged
     Language.name should equal ("Scala")
+
+
+---
+
+Uniform Access Principle with `var`
+===================================
+
+The same migration can be done with `var`iables:
+
+    !scala
+    class It(var name: String)
+    
+    val it = new It("rocks")
+    it.name = "renamed"
+    
+    it.name should equal ("renamed")
+
+
 
 ---
 
@@ -218,6 +272,7 @@ and the modified version:
     it.name should equal ("renamed")
 
 Which is why we're *fine* with `public val` fields in Scala!
+
 
 ---
 Case class
@@ -253,6 +308,18 @@ A simple POJO:
 
 So much code... Which you generate anyway. And now in Scala...
 
+---
+
+Boilerplate killer: case class
+===============================
+
+The same (almost) class in Scala
+
+    !scala
+    case class Person(name: String, surname: String, age: Int)
+
+The compiler will generate all we need, including nice `toString`, `##`, `apply`, `unapply` methods.
+    
 ---
 
 Boilerplate killer: case class
@@ -433,6 +500,23 @@ Scala is able to run **infinitely recursive method calls**!
     @tailrec
     def infinite(n: Int): Unit = infinite(n)
     
+    infinite(1111) 
+
+---
+
+Infinite Reccursion
+===================
+
+Scala is able to run **infinitely recursive method calls**!
+
+    !java
+    // excluded from scalaslide tests
+        
+    import annotation.tailrec
+    
+    @tailrec
+    def infinite(n: Int): Unit = infinite(n)
+    
     infinite(1111) // will never return, and will never throw stackoverflow!
 
 The above call will **never finish** and it will never throw an **StackOverflowException** like Java would!
@@ -465,6 +549,16 @@ If you need "real" recursion without growing the stack you'll need to use a tech
 
 ![image](img/trampoline.png)
 
+---
+Recursion trick #2: Trampolines
+===========
+
+Automatically translating a recursive call to a loop only works if the method calls itself, and no other functions in it's tail.
+
+If you need "real" recursion without growing the stack you'll need to use a technique called Trampolining:
+
+![image](img/trampoline.png)
+
 Trampolines have helpers implemented in: [scala.util.control.TailCalls](http://www.scala-lang.org/api/current/index.html#scala.util.control.TailCalls$).
 
     !scala
@@ -485,6 +579,25 @@ Why `toList`? Because `List`s have methods to cut of their `head` and `tail`, mu
 
 Lazy evaluation explained
 =========================
+
+---
+
+Lazy evaluation 
+===============
+
+Can you notice the previous slide containing lazy lazy evaluating code? 
+
+    !scala
+    import scala.util.control.TailCalls._
+    
+    def isEven(xs: List[Int]): TailRec[Boolean] =
+      if (xs.isEmpty) done(true) else tailcall(isOdd(xs.tail))
+
+    def isOdd(xs: List[Int]): TailRec[Boolean] =
+      if (xs.isEmpty) done(false) else tailcall(isEven(xs.tail))
+
+    isEven((1 to 10).toList).result
+
 
 ---
 
@@ -695,7 +808,11 @@ The type of the function will therefore be:
     type neededFunType = List[String] => List[Int]
     // the above is valid Scala, by the way!
 
-To achieve this we'll "map over the list with fun":
+---
+`map`
+=====
+
+So in order to map strings to numbers we'll "map over the list with fun":
 
     !scala
     val list = List("1", "2", "3")
@@ -707,10 +824,10 @@ To achieve this we'll "map over the list with fun":
     ints should (contain (1) and contain (2) and contain (3))
 
 ---
-`forEach`
+`foreach`
 =======
 
-`forEach` does exactly the same thing as `map`, but it returns `Unit`.
+`foreach` does exactly the same thing as `map`, but it returns `Unit`.
 
 Thanks to this, **it's faster** - as it won't build a new collection while mapping over the old one!
 
@@ -734,6 +851,10 @@ What's the average age of those people?
     avgAge should equal (17)
 
 Fold - think of it as folding a piece of paper.
+
+---
+(\_ + \_)
+========
 
 ---
 `filter` + chanining transformations
@@ -773,6 +894,23 @@ It implements typical functional operations such as **map** for example...
     noNumber map { it => println("Hey, this won't execute!") } 
 
 `Option` is the typesafe answer to null. In fact, it's somewhat like the **NullObject** design pattern.
+
+---
+`flatten`
+=========
+
+Given a list of options, discard items which are `None`
+
+    !scala
+    val l = None :: Some(2) :: None :: Some(4) :: Nil
+    
+    l.flatten should equal (List(2, 4))
+    
+    
+    
+    val i = List(List(3), List(List(2), List(1)))
+    
+    i.flatten should equal (List(3, List(2), List(1)))
 
 ---
 Traits
