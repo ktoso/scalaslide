@@ -14,6 +14,7 @@ scalaslide:gen [options for landslide]
 </code>
 
 and here's what you get:
+
 <a href="http://www.blog.project13.pl/wp-content/uploads/2012/06/scalaslide.png"><img class="aligncenter size-full wp-image-1620" title="scalaslide" src="http://www.blog.project13.pl/wp-content/uploads/2012/06/scalaslide.png" alt="" width="597" height="241" /></a>
 
 Here's a quick feature list of what scalaslide can do for you:
