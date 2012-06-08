@@ -8,11 +8,7 @@ On a side note, the presentation itself is compiled. And not in the sense of "pl
 
 This way I am 100% sure that the presented material both compiles and passes tests :-) Like the idea? Check out the sources on: <a href="https://github.com/ktoso/scalaslide">https://github.com/ktoso/scalaslide</a>.
 
-Here's an example of a run of the sbt build. You just type:
-<code>
-scalaslide:gen [options for landslide]
-</code>
-and here's what you get:
+Here's an example of a run of the sbt build. You just type: `scalaslide:gen [options for landslide]` and here's what you get:
 
 <a href="http://www.blog.project13.pl/wp-content/uploads/2012/06/scalaslide.png"><img class="aligncenter size-full wp-image-1620" title="scalaslide" src="http://www.blog.project13.pl/wp-content/uploads/2012/06/scalaslide.png" alt="" width="597" height="241" /></a>
 
