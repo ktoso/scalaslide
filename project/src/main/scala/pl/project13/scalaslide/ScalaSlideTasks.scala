@@ -23,6 +23,7 @@ object ScalaSlideTasks extends ScalaSlideKeys {
   )
 
   val slides_md = file("src/main/slides/slides.md")
+  val genDir = file("src/test/scala/pl/project13/scalaslide/gen/")
 
   val presentation_html = file("presentation.html")
   val presentation_pdf = file("presentation.pdf")
@@ -31,7 +32,9 @@ object ScalaSlideTasks extends ScalaSlideKeys {
   import com.tristanhunt.knockoff._
 
   lazy val cleanTaskDef = cleanTask in ScalaSlide := {
-    val genDir = file("src/test/scala/pl/project13/scalaslide/gen/")
+    
+    if (!genDir.exists()) genDir.mkdirs()
+
     val generatedTests = genDir.list.map(new File(_))
 
     println("Cleaning up [%d] generated test files...".format(generatedTests.size))
@@ -74,7 +77,8 @@ object ScalaSlideTasks extends ScalaSlideKeys {
     import RichFile._
 
     val name = "Generated_%d_Spec".format(generatedSpecNumber)
-    val testFile: java.io.File = file("src/test/scala/pl/project13/scalaslide/gen/%s.scala".format(name))
+
+    val testFile: java.io.File = file("%s/%s.scala".format(genDir.getAbsolutePath(), name))
     testFile.createNewFile()
 
     val preparedCode = code.text.content.split("\n").drop(1).mkString("\n")
