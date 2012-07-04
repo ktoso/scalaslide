@@ -33,6 +33,10 @@ The Presentation
 Was prepared and given by me at AGH - University of Science and Technology Kraków in May 2012.
 It's under Creative Commons BY, and there's a video online of the talk (although in polish): http://www.blog.project13.pl/index.php/coding/1606/scala-presentation-at-agh-university-of-science-and-technology/
 
+Links
+-----
+*ScalaSlide* was mentioned in the "Markdown" book published by Tim Steinbach, describing the many many uses of markdown. You can get a copy <a href="http://leanpub.com/markdown">here</a> if you're into this kind of reads.
+
 License
 -------
 Just make sure you notice me (konrad.malawski@project13.pl) or my blog; blog.project13.pl somewhere if you use this ;-)
