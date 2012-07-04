@@ -33,13 +33,14 @@ object ScalaSlideTasks extends ScalaSlideKeys {
 
   lazy val cleanTaskDef = cleanTask in ScalaSlide := {
     
-    if (!genDir.exists()) genDir.mkdirs()
+    if (!genDir.exists) genDir.mkdirs
 
-    val generatedTests = genDir.list.map(new File(_))
+    val generatedTests = genDir.listFiles
 
     println("Cleaning up [%d] generated test files...".format(generatedTests.size))
     generatedTests foreach { _.delete() }
     println("Finished cleaning up")
+
   }
 
   lazy val extractTestsTaskDef = extractTestsTask in ScalaSlide := {
@@ -47,7 +48,6 @@ object ScalaSlideTasks extends ScalaSlideKeys {
 
     val blocks = knockoff(slidesText)
     val scalaCodeBlocks = blocks filter { it => it.isInstanceOf[CodeBlock] && it.toString.contains("!scala")} map { _.asInstanceOf[CodeBlock] }
-
 
     println("Found [%s] scala code blocks!".format(String.valueOf(scalaCodeBlocks.size)))
 
