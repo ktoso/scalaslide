@@ -53,6 +53,7 @@ object BuildSettings {
 
   val buildSettings = Defaults.defaultSettings ++
     Seq(
+      parallelExecution in Global := false,
       organization := "pl.project13.scalaslide",
       name         := "scalaslide",
       version      := "0.1",
